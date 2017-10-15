@@ -26,20 +26,20 @@ public class Pawn extends Piece {
 				valid = valid;
 			}
 		//Check if you moved up 1 space
-			if(board[move.fromColumn][move.fromRow] == board[move.toColumn][move.toRow + 1]){
+			if(board[move.fromColumn][move.fromRow + 1] == board[move.toColumn][move.toRow]){
 				valid = true;
 			}
 		//Check if you are in the WHITE Pawn starting row (6)
 			if(board[move.fromColumn][move.fromRow] == board[move.fromColumn][6]){
 		//Check if you moved up 2 spaces
-				if(board[move.fromColumn][move.fromRow] == board[move.toColumn][move.toRow + 2]){
+				if(board[move.fromColumn][move.fromRow + 2] == board[move.toColumn][move.toRow]){
 					valid = true;
 				}
 				valid = valid;
 			}
 		//Check to see if you moved up diagonal left or right
-			if(board[move.fromColumn][move.fromRow] == board[move.fromColumn - 1][move.fromRow + 1] ||
-			   board[move.fromColumn][move.fromRow] == board[move.fromColumn + 1][move.fromRow + 1]){
+			if(board[move.fromColumn - 1][move.fromRow + 1] == board[move.fromColumn][move.fromRow] ||
+			   board[move.fromColumn + 1][move.fromRow + 1] == board[move.fromColumn][move.fromRow]){
 				valid = true;
 			}
 		}
@@ -52,20 +52,20 @@ public class Pawn extends Piece {
 				valid = valid;
 			}
 		//Check if you moved down 1 space
-			if(board[move.fromColumn][move.fromRow] == board[move.toColumn][move.toRow - 1]){
+			if(board[move.fromColumn][move.fromRow - 1] == board[move.toColumn][move.toRow]){
 				valid = true;
 			}
 		//Check if you are in the WHITE Pawn starting row (1)
 			if(board[move.fromColumn][move.fromRow] == board[move.fromColumn][1]){
 		//Check if you moved down 2 spaces
-				if(board[move.fromColumn][move.fromRow] == board[move.toColumn][move.toRow - 2]){
+				if(board[move.fromColumn][move.fromRow - 2] == board[move.toColumn][move.toRow]){
 					valid = true;
 				}
 				valid = valid;
 			}
 		//Check to see if you moved down diagonal left or right
-			if(board[move.fromColumn][move.fromRow] == board[move.fromColumn - 1][move.fromRow - 1] ||
-			   board[move.fromColumn][move.fromRow] == board[move.fromColumn + 1][move.fromRow - 1]){
+			if(board[move.fromColumn - 1][move.fromRow - 1] == board[move.fromColumn][move.fromRow] ||
+			   board[move.fromColumn + 1][move.fromRow - 1] == board[move.fromColumn][move.fromRow]){
 				valid = true;
 			}	
 		}
