@@ -1,3 +1,4 @@
+package chess;
 
 public enum GameStatus {
 	IN_MENU, 		// Player is currently in the menu

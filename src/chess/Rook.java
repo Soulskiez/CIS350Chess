@@ -1,3 +1,4 @@
+package chess;
 
 public class Rook extends Piece {
 	private Player player;
