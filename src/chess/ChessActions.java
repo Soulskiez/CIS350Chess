@@ -26,22 +26,24 @@ public class ChessActions extends JPanel {
 
 	/**The Image Icons for the buttons**/
 	/**For the black chess pieces**/
-
-ImageIcon bBishop=new ImageIcon(getClass().getResource("bBishop.png"));
-ImageIcon bKing=new ImageIcon(getClass().getResource("bKing.png"));
-ImageIcon bKnight=new ImageIcon(getClass().getResource("bKnight.png"));
-ImageIcon bPawn=new ImageIcon(getClass().getResource("bPawn.png"));
-ImageIcon bQueen=new ImageIcon(getClass().getResource("bQueen.png"));
-ImageIcon bRook=new ImageIcon(getClass().getResource("bRook.png"));
-ImageIcon BOARD=new ImageIcon(getClass().getResource("chessboard.jpg"));
+String bBishop = "bBishop";
+String bKing = "bKing";
+String bKnight = "bKnight";
+String bPawn = "bPawn";
+String bQueen = "bQueen";
+String bRook = "bRook";
+ImageIcon BOARD=new ImageIcon("chessboard.jpg");
 	
 	/**For the white chess Pieces**/
-ImageIcon wBishop=new ImageIcon(getClass().getResource("wBishop.png"));
-ImageIcon wKing=new ImageIcon(getClass().getResource("wKing.png"));
-ImageIcon wKnight=new ImageIcon(getClass().getResource("wKnight.png"));
-ImageIcon wPawn=new ImageIcon(getClass().getResource("wPawn.png"));
-ImageIcon wQueen=new ImageIcon(getClass().getResource("wQueen.png"));
-ImageIcon wRook=new ImageIcon(getClass().getResource("wRook.png"));
+String wBishop = "wBishop";
+String wKing = "wKing";
+String wKnight = "wKnight";
+String wPawn = "wPawn";
+String wQueen = "wQueen";
+String wRook = "wRook";
+String blank = "";
+
+
 
 	ImageIcon blankIcon = new ImageIcon("");
 
@@ -92,11 +94,11 @@ ImageIcon wRook=new ImageIcon(getClass().getResource("wRook.png"));
 		}
 
 		for(int i=0; i<8; i++){
-			board[6][i].setIcon(wPawn);
+			board[6][i].setText(wPawn);
 		}
 
 		for(int i=0; i<8; i++){
-			board[1][i].setIcon(bPawn);
+			board[1][i].setText(bPawn);
 		}
 
 		for(int row=0; row<8; row++){
@@ -141,55 +143,55 @@ ImageIcon wRook=new ImageIcon(getClass().getResource("wRook.png"));
 				if(model.pieceAt(r,c)!=null){
 					if((model.pieceAt(r,c).type().equals("Bishop"))
 							&&(model.pieceAt(r, c).player() == (Player.BLACK)))
-						board[r][c].setIcon(bBishop);
+						board[r][c].setText(bBishop);
 
 					if((model.pieceAt(r,c).type().equals("Bishop")) 
 							&&(model.pieceAt(r, c).player() == (Player.WHITE)))
-						board[r][c].setIcon(wBishop);
+						board[r][c].setText(wBishop);
 
 					if((model.pieceAt(r,c).type().equals("King"))
 							&&(model.pieceAt(r, c).player() == (Player.BLACK)))
-						board[r][c].setIcon(bKing);
+						board[r][c].setText(bKing);
 
 					if((model.pieceAt(r,c).type().equals("King")) 
 							&&(model.pieceAt(r, c).player() == (Player.WHITE)))
-						board[r][c].setIcon(wKing);
+						board[r][c].setText(wKing);
 
 					if((model.pieceAt(r,c).type().equals("Queen"))
 							&&(model.pieceAt(r, c).player() == (Player.BLACK)))
-						board[r][c].setIcon(bQueen);
+						board[r][c].setText(bQueen);
 
 					if((model.pieceAt(r,c).type().equals("Queen"))
 							&&(model.pieceAt(r, c).player() == (Player.WHITE)))
-						board[r][c].setIcon(wQueen);
+						board[r][c].setText(wQueen);
 
 					if((model.pieceAt(r,c).type().equals("Pawn")) 
 							&&(model.pieceAt(r, c).player() == (Player.BLACK)))
-						board[r][c].setIcon(bPawn);
+						board[r][c].setText(bPawn);
 
 					if((model.pieceAt(r,c).type().equals("Pawn"))
 							&&(model.pieceAt(r, c).player() == (Player.WHITE)))
-						board[r][c].setIcon(wPawn);
+						board[r][c].setText(wPawn);
 
 					if((model.pieceAt(r,c).type().equals("Knight")) 
 							&&(model.pieceAt(r, c).player() == (Player.BLACK)))
-						board[r][c].setIcon(bKnight);
+						board[r][c].setText(bKnight);
 
 					if((model.pieceAt(r,c).type().equals("Knight")) 
 							&&(model.pieceAt(r, c).player() == (Player.WHITE)))
-						board[r][c].setIcon(wKnight);
+						board[r][c].setText(wKnight);
 
 					if((model.pieceAt(r,c).type().equals("Rook")) && 
 							(model.pieceAt(r, c).player() == (Player.BLACK)))
-						board[r][c].setIcon(bRook);
+						board[r][c].setText(bRook);
 
 
 					if((model.pieceAt(r,c).type().equals("Rook")) 
 							&&(model.pieceAt(r, c).player() == (Player.WHITE)))
-						board[r][c].setIcon(wRook);
+						board[r][c].setText(wRook);
 
 				}else{
-					board[r][c].setIcon(blankIcon);
+					board[r][c].setText(blank);
 				}
 			}
 		}
@@ -231,11 +233,11 @@ ImageIcon wRook=new ImageIcon(getClass().getResource("wRook.png"));
 		}
 
 		for(int i=0; i<8; i++){
-			board[6][i].setIcon(wPawn);
+			board[6][i].setText(wPawn);
 		}
 
 		for(int i=0; i<8; i++){
-			board[1][i].setIcon(bPawn);
+			board[1][i].setText(bPawn);
 		}
 
 		for(int row=0; row<8; row++){
