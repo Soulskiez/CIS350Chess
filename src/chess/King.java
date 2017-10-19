@@ -17,7 +17,7 @@ private Player player;
 	}
 
 	@Override
-	public boolean isValidMove(Move move, Piece[][] board) {
+	public boolean isValidMove(Move move, PieceInterface[][] board) {
 		boolean valid = false;
 		int i = 0;
 		int j = 0;

@@ -6,5 +6,4 @@ public enum GameStatus {
 	BLACK_WON,		// Black won the match
 	WHITE_WON		// White won the match
 	
-	
 }

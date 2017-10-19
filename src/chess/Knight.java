@@ -17,7 +17,8 @@ public class Knight extends Piece {
 		return "Knight";
 	}
 
-	public boolean isValidMove(Move move, Piece[][] board) {
+	@Override
+	public boolean isValidMove(Move move, PieceInterface[][] board) {
 		boolean valid = false;
 
 		// Right 2 up 1
@@ -110,4 +111,6 @@ public class Knight extends Piece {
 
 		return valid;
 	}
+
+
 }

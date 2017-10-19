@@ -17,7 +17,7 @@ public class Bishop extends Piece {
 	}
 
 	@Override
-	public boolean isValidMove(Move move, Piece[][] board) {
+	public boolean isValidMove(Move move, PieceInterface[][] board) {
 		
 		boolean valid = false;
 		int diffC = Math.abs(move.fromColumn - move.toColumn);
@@ -37,12 +37,7 @@ public class Bishop extends Piece {
 						valid = true;
 					}
 					else if(board[j][i].player() != board[move.fromRow][move.fromColumn].player()){
-						if(board[j][i] == board[move.toRow][move.toColumn]){
-							valid = true;
-						}
-						else{
-							valid = false;
-						}
+						valid = true;
 						break;
 					}
 					else if(board[j][i].player() == board[move.fromRow][move.fromColumn].player()){
@@ -64,12 +59,7 @@ public class Bishop extends Piece {
 						valid = true;
 					}
 					else if(board[j][i].player() != board[move.fromRow][move.fromColumn].player()){
-						if(board[j][i] == board[move.toRow][move.toColumn]){
-							valid = true;
-						}
-						else{
-							valid = false;
-						}
+						valid = true;
 						break;
 					}
 					else if(board[j][i].player() == board[move.fromRow][move.fromColumn].player()){
@@ -91,12 +81,7 @@ public class Bishop extends Piece {
 						valid = true;
 					}
 					else if(board[j][i].player() != board[move.fromRow][move.fromColumn].player()){
-						if(board[j][i] == board[move.toRow][move.toColumn]){
-							valid = true;
-						}
-						else{
-							valid = false;
-						}
+						valid = true;
 						break;
 					}
 					else if(board[j][i].player() == board[move.fromRow][move.fromColumn].player()){
@@ -118,12 +103,7 @@ public class Bishop extends Piece {
 						valid = true;
 					}
 					else if(board[j][i].player() != board[move.fromRow][move.fromColumn].player()){
-						if(board[j][i] == board[move.toRow][move.toColumn]){
-							valid = true;
-						}
-						else{
-							valid = false;
-						}
+						valid = true;
 						break;
 					}
 					else if(board[j][i].player() == board[move.fromRow][move.fromColumn].player()){

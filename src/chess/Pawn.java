@@ -1,6 +1,7 @@
 package chess;
 
 public class Pawn extends Piece {
+
 	private Player player;
 	
 	protected Pawn(Player player){
@@ -17,7 +18,7 @@ public class Pawn extends Piece {
 	}
 
 	@Override
-	public boolean isValidMove(Move move, Piece[][] board) {
+	public boolean isValidMove(Move move, PieceInterface[][] board) {
 		boolean valid = false;
 		//Check if player is WHITE
 		if(board[move.fromRow][move.fromColumn].player() == Player.WHITE){
@@ -160,3 +161,4 @@ public class Pawn extends Piece {
 		
 	}
 }
+

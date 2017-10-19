@@ -1,6 +1,6 @@
 package chess;
 
-public abstract class Piece{
+public abstract class Piece implements PieceInterface{
 
 	private Player player;
 	private boolean valid = false;
@@ -16,7 +16,7 @@ public abstract class Piece{
 		
 		return "";
 	}
-	public boolean isValidMove(Move move, Piece[][] board){
+	public boolean isValidMove(Move move, PieceInterface[][] board){
 	boolean valid = false;
 
 	if((move.toRow != move.fromRow) || (move.fromColumn != move.toColumn)){
