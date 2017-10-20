@@ -9,7 +9,7 @@ public class Pawn extends Piece {
 	 * 
 	 * @param player Variable to determine which side the piece belongs to.
 	 */
-	protected Pawn(Player player) {
+	protected Pawn(final Player player) {
 		super(player);
 	}
 
@@ -33,8 +33,8 @@ public class Pawn extends Piece {
 	}
 
 	/**
-	 * Method that will return whether the movement of a given piece is allowed
-	 * for that piece.
+	 * Method that will return whether the movement of a given piece is
+	 * allowed for that piece.
 	 * 
 	 * @param move
 	 *            A specific move entered by the user.
@@ -43,7 +43,7 @@ public class Pawn extends Piece {
 	 * @return If the given move was a valid move.
 	 */
 	@Override
-	public boolean isValidMove(Move move, PieceInterface[][] board) {
+	public boolean isValidMove(final Move move, final PieceInterface[][] board) {
 		boolean valid = false;
 		// Check if player is WHITE
 		if (board[move.fromRow][move.fromColumn].player() == Player.WHITE) {

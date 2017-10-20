@@ -18,7 +18,7 @@ public class ChessGUI {
     * Main method to run the Chess GUI
     * @param args 
     */
-	public static void main(String[] args) {
+	public static void main(final String[] args) {
 		JFrame frame = new JFrame("Chess Game");
 		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -27,6 +27,6 @@ public class ChessGUI {
 		frame.getContentPane().add(panel);
 		frame.pack();
 		frame.setVisible(true);
-		frame.setSize(1280,720);
+		frame.setSize(1280, 720);
 	}
 }

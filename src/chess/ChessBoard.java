@@ -16,7 +16,7 @@ public class ChessBoard implements ChessInterface {
 	// The player which holds the piece
 	private Player player = Player.WHITE;
 
-	public boolean valid = false;
+	private boolean valid = false;
 
 	// Instantiates the board and all the different pieces
 	public ChessBoard() {
@@ -49,8 +49,8 @@ public class ChessBoard implements ChessInterface {
 	}
 
 	/**
-	 * This method determines if the game is over by checking if the King is in
-	 * check on every side.
+	 * This method determines if the game is over by checking if the King is
+	 * in check on every side.
 	 * 
 	 * @return true if the game is complete and false otherwise
 	 */
@@ -59,8 +59,9 @@ public class ChessBoard implements ChessInterface {
 
 		for (int i = 0; i < 8; i++) {
 			for (int j = 0; j < 8; j++) {
-				if (board[i][j].type() == "King" && inCheck(board[i][j].player()))
+				if (board[i][j].type() == "King" && inCheck(board[i][j].player())) {
 					complete = true;
+				}
 			}
 		}
 		return complete;
@@ -72,11 +73,13 @@ public class ChessBoard implements ChessInterface {
 	 * @param move a movement stored with a from and to location for both row and column 
 	 * (non-Javadoc)
 	 * @see chess.ChessInterface#isValidMove(chess.Move)
+	 * @return valid
 	 */
-	public boolean isValidMove(Move move) {
+	public boolean isValidMove(final Move move) {
 		boolean valid = false;
-		if (board[move.fromRow][move.fromColumn].isValidMove(move, board))
+		if (board[move.fromRow][move.fromColumn].isValidMove(move, board)) {
 			valid = true;
+		}
 
 		return valid;
 
@@ -88,7 +91,7 @@ public class ChessBoard implements ChessInterface {
 	 * @param move
 	 *            which holds the position values for each button
 	 */
-	public void move(Move move) {
+	public void move(final Move move) {
 		board[move.toRow][move.toColumn] = pieceAt(move.fromRow, move.fromColumn);
 		board[move.fromRow][move.fromColumn] = null;
 	}
@@ -104,7 +107,7 @@ public class ChessBoard implements ChessInterface {
 	 * @param p the player which needs to verifies if it's in check
 	 * @return if the player is in check
 	 */
-	public boolean inCheck(Player p) {
+	public boolean inCheck(final Player p) {
 
 		// Important variables
 
@@ -134,8 +137,9 @@ public class ChessBoard implements ChessInterface {
 						&& board[r][c].player() != board[tempRow][tempRow].player()) {
 					// Called isValidMove for the piece and determines if
 					// it can have access to p.
-					if (board[r][c].isValidMove(Temp = new Move(r, c, tempRow, tempCol), board))
+					if (board[r][c].isValidMove(Temp = new Move(r, c, tempRow, tempCol), board)) {
 						inCheck = true;
+					}
 				}
 			}
 		}
@@ -177,7 +181,7 @@ public class ChessBoard implements ChessInterface {
 	 * @param column a column location for the piece
 	 * @return the type of piece at the location
 	 */
-	public PieceInterface pieceAt(int row, int column) {
+	public PieceInterface pieceAt(final int row, final int column) {
 		return board[row][column];
 	}
 

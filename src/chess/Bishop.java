@@ -1,6 +1,7 @@
 package chess;
 
 public class Bishop extends Piece {
+
 	// A variable to determine which side a given piece is.
 	private Player player;
 
@@ -9,7 +10,7 @@ public class Bishop extends Piece {
 	 * 
 	 * @param player Variable to determine which side the piece belongs to.
 	 */
-	protected Bishop(Player player) {
+	protected Bishop(final Player player) {
 		super(player);
 	}
 
@@ -32,10 +33,10 @@ public class Bishop extends Piece {
 	public String type() {
 		return "Bishop";
 	}
-	
+
 	/**
-	 * Method that will return whether the movement of a given piece is allowed
-	 * for that piece.
+	 * Method that will return whether the movement of a given piece is allowed for
+	 * that piece.
 	 * 
 	 * @param move
 	 *            A specific move entered by the user.
@@ -44,7 +45,7 @@ public class Bishop extends Piece {
 	 * @return If the given move was a valid move.
 	 */
 	@Override
-	public boolean isValidMove(Move move, PieceInterface[][] board) {
+	public boolean isValidMove(final Move move, final PieceInterface[][] board) {
 
 		boolean valid = false;
 		int diffC = Math.abs(move.fromColumn - move.toColumn);

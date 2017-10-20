@@ -9,7 +9,7 @@ public class Knight extends Piece {
 	 * 
 	 * @param player Variable to determine which side the piece belongs to.
 	 */
-	protected Knight(Player player) {
+	protected Knight(final Player player) {
 		super(player);
 	}
 
@@ -34,8 +34,8 @@ public class Knight extends Piece {
 	}
 
 	/**
-	 * Method that will return whether the movement of a given piece is allowed
-	 * for that piece.
+	 * Method that will return whether the movement of a given piece is
+	 * allowed for that piece.
 	 * 
 	 * @param move
 	 *            A specific move entered by the user.
@@ -43,96 +43,112 @@ public class Knight extends Piece {
 	 *            A 2D array of pieces.
 	 * @return If the given move was a valid move.
 	 */
-	public boolean isValidMove(Move move, PieceInterface[][] board) {
+	public boolean isValidMove(final Move move, final PieceInterface[][] board) {
 		boolean valid = false;
 
 		// Right 2 up 1
-		if (move.toColumn == move.fromColumn + 2 && move.toRow == move.fromRow - 1)
-			if (board[move.toRow][move.toColumn] == null)
+		if (move.toColumn == move.fromColumn + 2 && move.toRow == move.fromRow - 1) {
+			if (board[move.toRow][move.toColumn] == null) {
 				valid = true;
-			else {
-				if (board[move.toRow][move.toColumn].player() != board[move.fromRow][move.fromColumn].player())
+			} else {
+				if (board[move.toRow][move.toColumn].player() != board[move.fromRow][move.fromColumn].player()) {
 					valid = true;
-				else
+				} else {
 					valid = false;
+				}
 			}
+		}
 
 		// Right 2 down 1
-		if (move.toColumn == move.fromColumn + 2 && move.toRow == move.fromRow + 1)
-			if (board[move.toRow][move.toColumn] == null)
+		if (move.toColumn == move.fromColumn + 2 && move.toRow == move.fromRow + 1) {
+			if (board[move.toRow][move.toColumn] == null) {
 				valid = true;
-			else {
-				if (board[move.toRow][move.toColumn].player() != board[move.fromRow][move.fromColumn].player())
+			} else {
+				if (board[move.toRow][move.toColumn].player() != board[move.fromRow][move.fromColumn].player()) {
 					valid = true;
-				else
+				} else {
 					valid = false;
+				}
 			}
+		}
 
 		// Up 2 right 1
-		if (move.toRow == move.fromRow - 2 && move.toColumn == move.fromColumn + 1)
-			if (board[move.toRow][move.toColumn] == null)
+		if (move.toRow == move.fromRow - 2 && move.toColumn == move.fromColumn + 1) {
+			if (board[move.toRow][move.toColumn] == null) {
 				valid = true;
-			else {
-				if (board[move.toRow][move.toColumn].player() != board[move.fromRow][move.fromColumn].player())
+			} else {
+				if (board[move.toRow][move.toColumn].player() != board[move.fromRow][move.fromColumn].player()) {
 					valid = true;
-				else
+				} else {
 					valid = false;
+				}
 			}
+		}
 
 		// Up 2 left 1
-		if (move.toRow == move.fromRow - 2 && move.toColumn == move.fromColumn + 1)
-			if (board[move.toRow][move.toColumn] == null)
+		if (move.toRow == move.fromRow - 2 && move.toColumn == move.fromColumn + 1) {
+			if (board[move.toRow][move.toColumn] == null) {
 				valid = true;
-			else {
-				if (board[move.toRow][move.toColumn].player() != board[move.fromRow][move.fromColumn].player())
+			} else {
+				if (board[move.toRow][move.toColumn].player() != board[move.fromRow][move.fromColumn].player()) {
 					valid = true;
-				else
+				} else {
 					valid = false;
+				}
 			}
+		}
 
 		// Left 2 up 1
-		if (move.toColumn == move.fromColumn - 2 && move.toRow == move.fromRow - 1)
-			if (board[move.toRow][move.toColumn] == null)
+		if (move.toColumn == move.fromColumn - 2 && move.toRow == move.fromRow - 1) {
+			if (board[move.toRow][move.toColumn] == null) {
 				valid = true;
-			else {
-				if (board[move.toRow][move.toColumn].player() != board[move.fromRow][move.fromColumn].player())
+			} else {
+				if (board[move.toRow][move.toColumn].player() != board[move.fromRow][move.fromColumn].player()) {
 					valid = true;
-				else
+				} else {
 					valid = false;
+				}
 			}
+		}
 
 		// Left 2 down 1
-		if (move.toColumn == move.fromColumn - 2 && move.toRow == move.fromRow + 1)
-			if (board[move.toRow][move.toColumn] == null)
+		if (move.toColumn == move.fromColumn - 2 && move.toRow == move.fromRow + 1) {
+			if (board[move.toRow][move.toColumn] == null) {
 				valid = true;
-			else {
-				if (board[move.toRow][move.toColumn].player() != board[move.fromRow][move.fromColumn].player())
+			} else {
+				if (board[move.toRow][move.toColumn].player() != board[move.fromRow][move.fromColumn].player()) {
 					valid = true;
-				else
+				} else {
 					valid = false;
+				}
 			}
+		}
 
 		// Down 2 left 1
-		if (move.toRow == move.fromRow + 2 && move.toColumn == move.fromColumn - 1)
-			if (board[move.toRow][move.toColumn] == null)
+		if (move.toRow == move.fromRow + 2 && move.toColumn == move.fromColumn - 1) {
+			if (board[move.toRow][move.toColumn] == null) {
 				valid = true;
-			else {
-				if (board[move.toRow][move.toColumn].player() != board[move.fromRow][move.fromColumn].player())
+			} else {
+				if (board[move.toRow][move.toColumn].player() != board[move.fromRow][move.fromColumn].player()) {
 					valid = true;
-				else
+				} else {
 					valid = false;
+				}
 			}
+		}
 
 		// Down 2 right 1
-		if (move.toRow == move.fromRow + 2 && move.toColumn == move.fromColumn - 1)
-			if (board[move.toRow][move.toColumn] == null)
+		if (move.toRow == move.fromRow + 2 && move.toColumn == move.fromColumn - 1) {
+			if (board[move.toRow][move.toColumn] == null) {
 				valid = true;
-			else {
-				if (board[move.toRow][move.toColumn].player() != board[move.fromRow][move.fromColumn].player())
+			} else {
+				if (board[move.toRow][move.toColumn].player() != board[move.fromRow][move.fromColumn].player()) {
 					valid = true;
-				else
+				} else {
 					valid = false;
+				}
 			}
+		}
 
 		return valid;
 	}

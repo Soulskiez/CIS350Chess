@@ -7,9 +7,10 @@ public abstract class Piece implements PieceInterface {
 	/**
 	 * A method that sets the player to the correct player.
 	 * 
-	 * @param player Variable to determine which side the piece belongs to.
+	 * @param player
+	 *            Variable to determine which side the piece belongs to.
 	 */
-	protected Piece(Player player) {
+	protected Piece(final Player player) {
 		this.player = player;
 	}
 
@@ -28,8 +29,8 @@ public abstract class Piece implements PieceInterface {
 	public abstract String type();
 
 	/**
-	 * Method that will return whether the movement of a given piece is allowed
-	 * for that piece.
+	 * Method that will return whether the movement of a given piece is allowed for
+	 * that piece.
 	 * 
 	 * @param move
 	 *            A specific move entered by the user.
@@ -37,7 +38,7 @@ public abstract class Piece implements PieceInterface {
 	 *            A 2D array of pieces.
 	 * @return If the given move was a valid move.
 	 */
-	public boolean isValidMove(Move move, Piece[][] board) {
+	public boolean isValidMove(final Move move, final Piece[][] board) {
 		boolean valid = false;
 
 		if ((move.toRow != move.fromRow) || (move.fromColumn != move.toColumn)) {

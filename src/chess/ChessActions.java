@@ -12,39 +12,38 @@ import javax.swing.*;
 import java.awt.image.BufferedImage;
 
 /**
- * Constructor for the ChessActions class, establishes the 
+ * Constructor for the ChessActions class, establishes the
  * 
- * @author Tyler Solnikowski, Kanoa Ellis,  Kayla Davis
+ * @author Tyler Solnikowski, Kanoa Ellis, Kayla Davis
  * @version October 19th, 2017
  * 
- *  */
+ */
 
 public class ChessActions extends JPanel {
-   // ArrayList to store the button types for the board
-    ArrayList<JButton> button = new ArrayList<JButton>();
+	// ArrayList to store the button types for the board
+	private ArrayList<JButton> button = new ArrayList<JButton>();
 
 	private boolean detect;
 	private int row = 0;
 	private int col = 0;
 
-	
 	// For the black chess pieces
-	String bBishop = "bBishop";
-	String bKing = "bKing";
-	String bKnight = "bKnight";
-	String bPawn = "bPawn";
-	String bQueen = "bQueen";
-	String bRook = "bRook";
-	ImageIcon BOARD = new ImageIcon("chessboard.jpg");
+	private String bBishop = "bBishop";
+	private String bKing = "bKing";
+	private String bKnight = "bKnight";
+	private String bPawn = "bPawn";
+	private String bQueen = "bQueen";
+	private String bRook = "bRook";
+	private ImageIcon BOARD = new ImageIcon("chessboard.jpg");
 
 	// For the white chess Pieces
-	String wBishop = "wBishop";
-	String wKing = "wKing";
-	String wKnight = "wKnight";
-	String wPawn = "wPawn";
-	String wQueen = "wQueen";
-	String wRook = "wRook";
-	String blank = "";
+	private String wBishop = "wBishop";
+	private String wKing = "wKing";
+	private String wKnight = "wKnight";
+	private String wPawn = "wPawn";
+	private String wQueen = "wQueen";
+	private String wRook = "wRook";
+	private String blank = "";
 
 	private JButton[][] board;
 	private ChessBoard model;
@@ -115,11 +114,11 @@ public class ChessActions extends JPanel {
 		for (int i = 0; i < 8; i++) {
 			board[6][i].setText(wPawn);
 		}
-		//Set white pawns
+		// Set white pawns
 		for (int i = 0; i < 8; i++) {
 			board[6][i].setText(wPawn);
 		}
-		//Set black pawns
+		// Set black pawns
 		for (int i = 0; i < 8; i++) {
 			board[1][i].setText(bPawn);
 		}
@@ -133,7 +132,7 @@ public class ChessActions extends JPanel {
 				} else {
 					board[row][col].setBackground(Color.BLACK);
 				}
-				//setting the display size
+				// setting the display size
 				board[row][col].setPreferredSize(new Dimension(60, 60));
 				board[row][col].setMargin(new Insets(0, 0, 0, 0));
 				board[row][col].setBorder(null);
@@ -149,10 +148,9 @@ public class ChessActions extends JPanel {
 		displayBoard();
 	}
 
-	
 	/**
-	 * A method that updates the chess board to display pieces, called after actions to reflect moved pieces and other actions
-	 * so they are displayed for the user. 
+	 * A method that updates the chess board to display pieces, called after actions
+	 * to reflect moved pieces and other actions so they are displayed for the user.
 	 */
 	private void displayBoard() {
 		// Scanning each slot on the board
@@ -231,7 +229,8 @@ public class ChessActions extends JPanel {
 	}
 
 	/**
-	 * Method to instantiate a New Game, resets the board back to the original piece layout.
+	 * Method to instantiate a New Game, resets the board back to the original piece
+	 * layout.
 	 *
 	 */
 	private void NewGame() {
@@ -323,16 +322,19 @@ public class ChessActions extends JPanel {
 	}
 
 	/**
-	 * ButtonListener reads in actions from click events by implementing ActionListener. Method contains
-	 * the various actions taken depending on what button has been clicked, such as moving pieces, quitting,
-	 * creating a new game, ect.
+	 * ButtonListener reads in actions from click events by implementing
+	 * ActionListener. Method contains the various actions taken depending on what
+	 * button has been clicked, such as moving pieces, quitting, creating a new
+	 * game, ect.
 	 **/
 	private class ButtonListener implements ActionListener {
-	    /**
-	     * Method to find actions and their sources in order to read it in for appropriate
-	     * methods to be called.
-	     * @param event A button click on the GUI read in to determine actions.
-	     **/
+		/**
+		 * Method to find actions and their sources in order to read it in for
+		 * appropriate methods to be called.
+		 * 
+		 * @param event
+		 *            A button click on the GUI read in to determine actions.
+		 **/
 		public void actionPerformed(final ActionEvent event) {
 
 			// Creating temporary variables to help.
@@ -342,20 +344,18 @@ public class ChessActions extends JPanel {
 			// If the user clicks on the quit button, quit the game
 			if (event.getSource() == Quit) {
 
-				JOptionPane.showMessageDialog(null, "Goodbye", "Chess",
-						JOptionPane.INFORMATION_MESSAGE, BOARD);
+				JOptionPane.showMessageDialog(null, "Goodbye", "Chess", JOptionPane.INFORMATION_MESSAGE, BOARD);
 
 				System.exit(0);
 			}
 			// Resets a new game when clicked
 			if (event.getSource() == newGame) {
-				JOptionPane.showMessageDialog(null, "Welcome", "Chess",
-						JOptionPane.INFORMATION_MESSAGE, BOARD);
+				JOptionPane.showMessageDialog(null, "Welcome", "Chess", JOptionPane.INFORMATION_MESSAGE, BOARD);
 
 				NewGame();
 			}
 
-			// trying to move pieces, needs work still. Pieces aren't moving. 
+			// trying to move pieces, needs work still. Pieces aren't moving.
 			for (int i = 0; i < board.length; i++) {
 				for (int j = 0; j < board[i].length; j++) {
 
@@ -388,43 +388,31 @@ public class ChessActions extends JPanel {
 									model.setNextPlayer();
 									detect = false;
 									displayBoard();
-
-								}
-
-								else {
+								} else {
 									JOptionPane.showMessageDialog(null, "Wrong move", "Chess",
 											JOptionPane.INFORMATION_MESSAGE, BOARD);
 									detect = false;
 								}
-
 							}
-
 							// If there is a piece there, make sure that the move is valid before moving the
 							// piece to the desired location, and most importantly, make sure that the
-							//  players are different.
-
+							// players are different.
 							else {
-
 								if (model.pieceAt(row, col).player() != model.pieceAt(i, j).player()) {
 									if (model.isValidMove(tempMove)) {
 										model.move(tempMove);
 										model.setNextPlayer();
 										detect = false;
 										displayBoard();
-									}
-
-									else {
+									} else {
 										JOptionPane.showMessageDialog(null, "Wrong move", "Chess",
 												JOptionPane.INFORMATION_MESSAGE, BOARD);
 										detect = false;
 									}
-
 								}
-
 							}
 						}
 					}
-
 				}
 			}
 		}
