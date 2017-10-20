@@ -93,7 +93,7 @@ public class Rook extends Piece {
 			} // end of move left
 
 			// Move right
-			if (move.fromColumn > move.toColumn) {
+			if (move.fromColumn < move.toColumn) {
 				for (int j = move.fromColumn + 1; j <= move.toColumn; j++) {
 					if (board[move.fromRow][j] == null)
 						valid = true;
