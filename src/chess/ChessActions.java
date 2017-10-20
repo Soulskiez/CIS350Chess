@@ -130,11 +130,9 @@ String blank = "";
 	/*******************************************************************
 	 * This method updates the board
 	 ******************************************************************/
-	private void displayBoard() 
-	{
+	private void displayBoard() {
 		//Scanning each slot on the board
-		for (int r =0; r<model.numRows(); r++)
-		{
+		for (int r =0; r<model.numRows(); r++){
 			for (int c=0; c<model.numColumns(); c++){
 
 				//If the slot is not empty, there must be a piece there,
@@ -190,7 +188,8 @@ String blank = "";
 							&&(model.pieceAt(r, c).player() == (Player.WHITE)))
 						board[r][c].setText(wRook);
 
-				}else{
+				}
+				else{
 					board[r][c].setText(blank);
 				}
 			}
@@ -231,13 +230,31 @@ String blank = "";
 				board[r][c] = new JButton();
 			}
 		}
-
-		for(int i=0; i<8; i++){
-			board[6][i].setText(wPawn);
-		}
-
+		
+		//Black Pieces
+		board[0][0].setText(bRook);
+		board[0][1].setText(bKnight);
+		board[0][2].setText(bRook);
+		board[0][3].setText(bQueen);
+		board[0][4].setText(bKing);
+		board[0][5].setText(bRook);
+		board[0][6].setText(bKnight);
+		board[0][7].setText(bRook);
 		for(int i=0; i<8; i++){
 			board[1][i].setText(bPawn);
+		}
+
+		//White Pieces
+		board[7][0].setText(wRook);
+		board[7][1].setText(wKnight);
+		board[7][2].setText(wBishop);
+		board[7][3].setText(wQueen);
+		board[7][4].setText(wKing);
+		board[7][5].setText(wBishop);
+		board[7][6].setText(wKnight);
+		board[7][7].setText(wRook);
+		for(int i=0; i<8; i++){
+			board[6][i].setText(wPawn);
 		}
 
 		for(int row=0; row<8; row++){
@@ -300,7 +317,7 @@ String blank = "";
 
 
 			//trying to move pieces
-			for(int i=0; i<board.length;i++)
+			for(int i=0; i<board.length;i++){
 				for(int j=0; j<board[i].length; j++){
 					
 					
@@ -384,7 +401,8 @@ String blank = "";
 						}
 					}
 
-				}	
+				}
+			}
 		}
 	}
 }
