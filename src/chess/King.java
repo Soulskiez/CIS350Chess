@@ -50,7 +50,7 @@ public class King extends Piece {
 		int j = 0;
 		// Move to the same spot check
 		if (board[move.fromRow][move.fromColumn] == board[move.toRow][move.toColumn]) {
-			valid = valid;
+			valid = false;
 		}
 
 		// Move up check
@@ -63,7 +63,7 @@ public class King extends Piece {
 				valid = true;
 
 			} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
-				valid = valid;
+				valid = false;
 			}
 
 		}
@@ -78,7 +78,7 @@ public class King extends Piece {
 				valid = true;
 
 			} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
-				valid = valid;
+				valid = false;
 			}
 
 		}
@@ -93,7 +93,7 @@ public class King extends Piece {
 				valid = true;
 
 			} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
-				valid = valid;
+				valid = false;
 			}
 
 		}
@@ -108,7 +108,7 @@ public class King extends Piece {
 				valid = true;
 
 			} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
-				valid = valid;
+				valid = false;
 			}
 
 		}
@@ -123,7 +123,7 @@ public class King extends Piece {
 				valid = true;
 
 			} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
-				valid = valid;
+				valid = false;
 			}
 
 		}
@@ -138,7 +138,7 @@ public class King extends Piece {
 				valid = true;
 
 			} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
-				valid = valid;
+				valid = false;
 			}
 
 		}
@@ -153,7 +153,7 @@ public class King extends Piece {
 				valid = true;
 
 			} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
-				valid = valid;
+				valid = false;
 			}
 		}
 
@@ -167,7 +167,7 @@ public class King extends Piece {
 				valid = true;
 
 			} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
-				valid = valid;
+				valid = false;
 			}
 
 		}

@@ -65,7 +65,7 @@ public class Queen extends Piece {
 						valid = true;
 						break;
 					} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
-						valid = valid;
+						valid = false;
 						break;
 					}
 					i--;
@@ -89,7 +89,7 @@ public class Queen extends Piece {
 						}
 						break;
 					} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
-						valid = valid;
+						valid = false;
 						break;
 					}
 					i--;
@@ -113,7 +113,7 @@ public class Queen extends Piece {
 						}
 						break;
 					} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
-						valid = valid;
+						valid = false;
 						break;
 					}
 					i++;
@@ -137,7 +137,7 @@ public class Queen extends Piece {
 						}
 						break;
 					} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
-						valid = valid;
+						valid = false;
 						break;
 					}
 					i++;

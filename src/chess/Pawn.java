@@ -51,7 +51,7 @@ public class Pawn extends Piece {
 			int j = 0;
 			// Check if you moved to the same spot
 			if (board[move.fromRow][move.fromColumn] == board[move.toRow][move.toColumn]) {
-				valid = valid;
+				valid = false;
 			}
 
 			// Check if you moved up 1 space
@@ -62,10 +62,10 @@ public class Pawn extends Piece {
 				if (board[j][i] == null) {
 					valid = true;
 				} else if (board[j][i].player() != board[move.fromRow][move.fromColumn].player()) {
-					valid = valid;
+					valid = false;
 
 				} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
-					valid = valid;
+					valid = false;
 				}
 
 			}
@@ -81,10 +81,10 @@ public class Pawn extends Piece {
 						if (board[j][i] == null) {
 							valid = true;
 						} else if (board[j][i].player() != board[move.fromRow][move.fromColumn].player()) {
-							valid = valid;
+							valid = false;
 							break;
 						} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
-							valid = valid;
+							valid = false;
 							break;
 						}
 						j++;
@@ -96,12 +96,12 @@ public class Pawn extends Piece {
 					i = move.fromColumn;
 					j = move.fromRow + 1;
 					if (board[j][i + 1] == null || board[j][i - 1] == null) {
-						valid = valid;
+						valid = false;
 					} else if (board[j][i].player() != board[move.fromRow][move.fromColumn].player()) {
 						valid = true;
 
 					} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
-						valid = valid;
+						valid = false;
 					}
 
 				}
@@ -115,7 +115,7 @@ public class Pawn extends Piece {
 			int j = 0;
 			// Check if you moved to the same spot
 			if (board[move.fromRow][move.fromColumn] == board[move.toRow][move.toColumn]) {
-				valid = valid;
+				valid = false;
 			}
 			// Check if you moved down 1 space
 			if (board[move.fromRow - 1][move.fromColumn] == board[move.toRow][move.toColumn]) {
@@ -124,10 +124,10 @@ public class Pawn extends Piece {
 				if (board[j][i] == null) {
 					valid = true;
 				} else if (board[j][i].player() != board[move.fromRow][move.fromColumn].player()) {
-					valid = valid;
+					valid = false;
 
 				} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
-					valid = valid;
+					valid = false;
 				}
 
 			}
@@ -142,10 +142,10 @@ public class Pawn extends Piece {
 						if (board[j][i] == null) {
 							valid = true;
 						} else if (board[j][i].player() != board[move.fromRow][move.fromColumn].player()) {
-							valid = valid;
+							valid = false;
 							break;
 						} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
-							valid = valid;
+							valid = false;
 							break;
 						}
 						j--;
@@ -158,11 +158,11 @@ public class Pawn extends Piece {
 				i = move.fromColumn;
 				j = move.fromRow - 1;
 				if (board[j][i + 1] == null || board[j][i - 1] == null) {
-					valid = valid;
+					valid = false;
 				} else if (board[j][i].player() != board[move.fromRow][move.fromColumn].player()) {
 					valid = true;
 				} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
-					valid = valid;
+					valid = false;
 				}
 			}
 
