@@ -1,23 +1,48 @@
 package chess;
 
 public class Knight extends Piece {
+	// A variable to determine which side a given piece is.
 	private Player player;
 
+	/**
+	 * A method that sets the player to the correct player.
+	 * 
+	 * @param player Variable to determine which side the piece belongs to.
+	 */
 	protected Knight(Player player) {
 		super(player);
 	}
 
+	/**
+	 * Method to return the player
+	 * 
+	 * @return player Variable to determine which side the piece belongs to.
+	 */
 	@Override
 	public Player player() {
 		return player;
 	}
 
+	/**
+	 * Method that returns the type of the piece as a string.
+	 * 
+	 * @return The type of the piece as a string
+	 */
 	@Override
 	public String type() {
 		return "Knight";
 	}
 
-	@Override
+	/**
+	 * Method that will return whether the movement of a given piece is allowed
+	 * for that piece.
+	 * 
+	 * @param move
+	 *            A specific move entered by the user.
+	 * @param board
+	 *            A 2D array of pieces.
+	 * @return If the given move was a valid move.
+	 */
 	public boolean isValidMove(Move move, PieceInterface[][] board) {
 		boolean valid = false;
 
@@ -111,6 +136,4 @@ public class Knight extends Piece {
 
 		return valid;
 	}
-
-
 }
