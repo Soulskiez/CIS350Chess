@@ -15,9 +15,11 @@ public class ChessActions extends JPanel {
 
 	private ArrayList <JButton> button = new ArrayList<JButton>();
 	
-	private boolean detect;
+	private boolean detect = false;
 	private int row = 8;
 	private int col = 8;
+	private int nRow = 0;
+	private int nCol = 0;
 
 	private static final long serialVersionUID = 1L;
 
@@ -117,10 +119,11 @@ public class ChessActions extends JPanel {
 	 * This method updates the board
 	 ******************************************************************/
 	private void displayBoard() {
+		
 		// Scanning each slot on the board
 		for (int r = 0; r < model.numRows(); r++) {
 			for (int c = 0; c < model.numColumns(); c++) {
-
+				
 				// If the slot is not empty, there must be a piece there,
 				// if there is, search for the type and the color and
 				// set the appropriate icon.
@@ -149,9 +152,13 @@ public class ChessActions extends JPanel {
 
 					if ((model.pieceAt(r, c).type().equals("Pawn")) && (model.pieceAt(r, c).player() == (Player.BLACK)))
 						board[r][c].setText(bPawn);
-
-					if ((model.pieceAt(r, c).type().equals("Pawn")) && (model.pieceAt(r, c).player() == (Player.WHITE)))
+					if(r == 5 && c == 5) {
+						//System.out.println(model.pieceAt(r,  c).type());
+						//System.out.println(model.pieceAt(r,  c).player());
+					}
+					if ((model.pieceAt(r, c).type().equals("Pawn")) && (model.pieceAt(r, c).player() == (Player.WHITE))) {
 						board[r][c].setText(wPawn);
+					}
 
 					if ((model.pieceAt(r, c).type().equals("Knight"))
 							&& (model.pieceAt(r, c).player() == (Player.BLACK)))
@@ -200,9 +207,9 @@ public class ChessActions extends JPanel {
 		Center.setLayout(new GridLayout(8, 8));
 
 		// Instantiating the JButtons
-		board = new JButton[8][8];
-		for (int r = 0; r < 8; r++) {
-			for (int c = 0; c < 8; c++) {
+		board = new JButton[row][col];
+		for (int r = 0; r < row; r++) {
+			for (int c = 0; c < col; c++) {
 				board[r][c] = new JButton();
 			}
 		}
@@ -267,12 +274,12 @@ public class ChessActions extends JPanel {
 	 * appropriate methods are called.
 	 **********************************************************************/
 	private class ButtonListener implements ActionListener {
+		
 		public void actionPerformed(ActionEvent event) {
-			Move tempMove = null;
+			Move tempMove;
 			Piece movePiece;
-			detect = false;
-			int nRow = 0;
-			int nCol = 0;
+			//detect = false;
+			
 			
 			
 			// If the user clicks on the quit button, quit the game
@@ -286,8 +293,8 @@ public class ChessActions extends JPanel {
 			}
 
 			if (event.getSource() == newGame) {
-				JOptionPane.showMessageDialog(null, "Welcome to the Game" + " of Chess", "Chess",
-						JOptionPane.INFORMATION_MESSAGE, BOARD);
+//				JOptionPane.showMessageDialog(null, "Welcome to the Game" + " of Chess", "Chess",
+//						JOptionPane.INFORMATION_MESSAGE, BOARD);
 
 				NewGame();
 			}
@@ -295,28 +302,28 @@ public class ChessActions extends JPanel {
 			for(int i = 0; i < board.length; i++) {
 				for(int j = 0; j < board[i].length; j++) {
 					if(event.getSource() == board[i][j]) {
-						tempMove = new Move(i, 0, j, 0);
 						if(!detect && model.pieceAt(i, j) != null) {
 							nRow = i;
 							nCol = j;
-							model.move(tempMove);
 							detect = true;
 							displayBoard();
 						}
-						if(detect) {
-							tempMove = new Move(row, i, col, j);
+						else if(detect) {
+							tempMove = new Move(nRow, i, nCol, j);
 							
-							if(model.pieceAt(i, j) == null) {
+							if(model.pieceAt(i, j) == null  && model.isValidMove(tempMove)) {
+							
 								model.move(tempMove);
 								detect = false;
 								displayBoard();
+								
 							}
 							else {
 								detect = false;
 							}
 						}
 						
-					}	
+					}
 				}
 			}
 			

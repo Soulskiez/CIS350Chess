@@ -2,14 +2,14 @@ package chess;
 
 public class Queen extends Piece {
 	// A variable to determine which side a given piece is.
-	private Player player;
+//	private Player player;
 
 	/**
 	 * A method that sets the player to the correct player.
 	 * 
 	 * @param player Variable to determine which side the piece belongs to.
 	 */
-	protected Queen(final Player player) {
+	protected Queen(Player player) {
 		super(player);
 	}
 
@@ -18,10 +18,10 @@ public class Queen extends Piece {
 	 * 
 	 * @return player Variable to determine which side the piece belongs to.
 	 */
-	@Override
-	public Player player() {
-		return player;
-	}
+//	@Override
+//	public Player player() {
+//		return player;
+//	}
 
 	/**
 	 * Method that returns the type of the piece as a string.
@@ -44,7 +44,7 @@ public class Queen extends Piece {
 	 * @return If the given move was a valid move.
 	 */
 	@Override
-	public boolean isValidMove(final Move move, final PieceInterface[][] board) {
+	public boolean isValidMove(Move move, PieceInterface[][] board) {
 		boolean valid = false;
 		int diffC = Math.abs(move.fromColumn - move.toColumn);
 		int diffR = Math.abs(move.fromRow - move.toRow);
@@ -150,13 +150,13 @@ public class Queen extends Piece {
 				if (move.fromRow > move.toRow) {
 					i = move.fromRow - 1;
 					while (i >= move.toRow) {
-						if (board[i][move.toColumn] == null) {
+						if (board[i][move.toColumn] == null)
 							valid = true;
-						} else {
+						else {
 							if (board[i][move.fromColumn].player() != board[move.fromRow][move.fromColumn].player()) {
-								if (i == move.toRow) {
+								if (i == move.toRow)
 									valid = true;
-								} else {
+								else {
 									valid = false;
 									break;
 								}
@@ -174,13 +174,13 @@ public class Queen extends Piece {
 				if (move.fromRow < move.toRow) {
 					i = move.fromRow + 1;
 					while (i <= move.toRow) {
-						if (board[i][move.toColumn] == null) {
+						if (board[i][move.toColumn] == null)
 							valid = true;
-						} else {
+						else {
 							if (board[i][move.fromColumn].player() != board[move.fromRow][move.fromColumn].player()) {
-								if (i == move.toRow) {
+								if (i == move.toRow)
 									valid = true;
-								} else {
+								else {
 									valid = false;
 									break;
 								}
@@ -200,13 +200,13 @@ public class Queen extends Piece {
 				if (move.fromColumn > move.toColumn) {
 					j = move.fromColumn - 1;
 					while (j >= move.toColumn) {
-						if (board[move.fromRow][j] == null) {
+						if (board[move.fromRow][j] == null)
 							valid = true;
-						} else {
+						else {
 							if (board[move.fromRow][j].player() != board[move.fromRow][move.fromColumn].player()) {
-								if (j == move.toColumn) {
+								if (j == move.toColumn)
 									valid = true;
-								} else {
+								else {
 									valid = false;
 									break;
 								}
@@ -225,13 +225,13 @@ public class Queen extends Piece {
 				if (move.fromColumn > move.toColumn) {
 					j = move.fromColumn + 1;
 					while (j <= move.toColumn) {
-						if (board[move.fromRow][j] == null) {
+						if (board[move.fromRow][j] == null)
 							valid = true;
-						} else {
+						else {
 							if (board[move.fromRow][j].player() != board[move.fromRow][move.fromColumn].player()) {
-								if (j == move.toColumn) {
+								if (j == move.toColumn)
 									valid = true;
-								} else {
+								else {
 									valid = false;
 									break;
 								}

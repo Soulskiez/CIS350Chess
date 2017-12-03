@@ -2,15 +2,14 @@ package chess;
 
 public class King extends Piece {
 	// A variable to determine which side a given piece is.
-	private Player player;
+//	private Player player;
 
 	/**
 	 * A method that sets the player to the correct player.
 	 * 
-	 * @param player
-	 *            Variable to determine which side the piece belongs to.
+	 * @param player Variable to determine which side the piece belongs to.
 	 */
-	protected King(final Player player) {
+	protected King(Player player) {
 		super(player);
 	}
 
@@ -19,10 +18,10 @@ public class King extends Piece {
 	 * 
 	 * @return player Variable to determine which side the piece belongs to.
 	 */
-	@Override
-	public Player player() {
-		return player;
-	}
+//	@Override
+//	public Player player() {
+//		return player;
+//	}
 
 	/**
 	 * Method that returns the type of the piece as a string.
@@ -35,8 +34,8 @@ public class King extends Piece {
 	}
 
 	/**
-	 * Method that will return whether the movement of a given piece is allowed for
-	 * that piece.
+	 * Method that will return whether the movement of a given piece is allowed
+	 * for that piece.
 	 * 
 	 * @param move
 	 *            A specific move entered by the user.
@@ -45,7 +44,7 @@ public class King extends Piece {
 	 * @return If the given move was a valid move.
 	 */
 	@Override
-	public boolean isValidMove(final Move move, final PieceInterface[][] board) {
+	public boolean isValidMove(Move move, PieceInterface[][] board) {
 		boolean valid = false;
 		int i = 0;
 		int j = 0;
@@ -53,6 +52,7 @@ public class King extends Piece {
 		if (board[move.fromRow][move.fromColumn] == board[move.toRow][move.toColumn]) {
 			valid = false;
 		}
+
 		// Move up check
 		else if (board[move.fromRow + 1][move.fromColumn] == board[move.toRow][move.toColumn]) {
 			i = move.fromColumn;
@@ -65,7 +65,9 @@ public class King extends Piece {
 			} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
 				valid = false;
 			}
+
 		}
+
 		// Move diagonal up right check
 		else if (board[move.fromRow + 1][move.fromColumn + 1] == board[move.toRow][move.toColumn]) {
 			i = move.fromColumn + 1;
@@ -78,7 +80,9 @@ public class King extends Piece {
 			} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
 				valid = false;
 			}
+
 		}
+
 		// Move right check
 		else if (board[move.fromRow][move.fromColumn + 1] == board[move.toRow][move.toColumn]) {
 			i = move.fromColumn + 1;
@@ -91,7 +95,9 @@ public class King extends Piece {
 			} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
 				valid = false;
 			}
+
 		}
+
 		// Move diagonal down right check
 		else if (board[move.fromRow - 1][move.fromColumn + 1] == board[move.toRow][move.toColumn]) {
 			i = move.fromColumn + 1;
@@ -104,7 +110,9 @@ public class King extends Piece {
 			} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
 				valid = false;
 			}
+
 		}
+
 		// Move down check
 		else if (board[move.fromRow - 1][move.fromColumn] == board[move.toRow][move.toColumn]) {
 			i = move.fromColumn;
@@ -117,7 +125,9 @@ public class King extends Piece {
 			} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
 				valid = false;
 			}
+
 		}
+
 		// Move diagonal down left check
 		else if (board[move.fromRow - 1][move.fromColumn - 1] == board[move.toRow][move.toColumn]) {
 			i = move.fromColumn - 1;
@@ -130,7 +140,9 @@ public class King extends Piece {
 			} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
 				valid = false;
 			}
+
 		}
+
 		// Move left check
 		else if (board[move.fromRow][move.fromColumn - 1] == board[move.toRow][move.toColumn]) {
 			i = move.fromColumn - 1;
@@ -144,6 +156,7 @@ public class King extends Piece {
 				valid = false;
 			}
 		}
+
 		// Move diagonal up left check
 		else if (board[move.fromRow + 1][move.fromColumn - 1] == board[move.toRow][move.toColumn]) {
 			i = move.fromColumn - 1;
@@ -156,7 +169,10 @@ public class King extends Piece {
 			} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
 				valid = false;
 			}
+
 		}
+
 		return valid;
 	}
+
 }

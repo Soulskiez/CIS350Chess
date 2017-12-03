@@ -1,13 +1,6 @@
 package chess;
 
-/**
- * Interface for all of the pieces.
- *
- * @author Tyler Solnikowski, Kanoa Ellis,  Kayla Davis
- * @version October 19th, 2017
- *
- */
-public interface PieceInterface {
+public interface PieceInterface{
 
 	/**
 	 * Return the player that owns this piece.
@@ -18,7 +11,9 @@ public interface PieceInterface {
 
 
 	/**
-	 * Return the type of this piece ("King", "Queen", "Rook", etc.).
+	 * Return the type of this piece ("King", "Queen", "Rook", etc.).  
+	 * Note:  In this case "type" refers to the game
+	 * of chess, not the type of the Java class.
 	 *
 	 * @return the type of this piece
 	 */
@@ -27,11 +22,29 @@ public interface PieceInterface {
 
 
 	/**
-	 * Determines if the move is valid given a move and the 2D array of pieces from the chess board.
-	 * 
-	 * @param move a move with a to and from location 
-	 * @param board a 2D array of pieces
-	 * @return true if move is allowed, false otherwise
+	 * Returns whether the piece at location {@code 
+	 * [move.fromRow, move.fromColumn]} is allowed to move to location
+	 * {@code [move.fromRow, move.fromColumn]}.
+	 *
+	 * Note:  Pieces don't store their own location 
+	 * (because doing so would be redundant).  Therefore,
+	 * the {@code [move.fromRow, move.fromColumn]} 
+	 * component of {@code move} is necessary.
+	 * {@code this} object must be the piece at location 
+	 * {@code [move.fromRow, move.fromColumn]}.
+	 * (This method makes no sense otherwise.)
+	 *
+	 * @param move  a {@link W13project3.Move} object 
+	 * describing the move to be made.
+	 * @param board the {@link W13project3.IChessBoard}
+	 *  in which this piece resides.
+	 * @return {@code true} if the proposed move is valid, 
+	 * {@code false} otherwise.
+	 * @throws IndexOutOfBoundsException if either {@code
+	 * [move.fromRow, move.fromColumn]} or {@code [move.toRow,
+	 *move.toColumn]} don't represent valid locations on the board.
+	 * @throws IllegalArgumentException  if {@code this} object isn't
+	 * the piece at location {@code [move.fromRow, move.fromColumn]}.
 	 */
 	boolean isValidMove(Move move, PieceInterface[][] board);
 }

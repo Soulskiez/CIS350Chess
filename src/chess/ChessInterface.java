@@ -1,58 +1,57 @@
 package chess;
 
-/**
- * Interface for the Board
- *
- * @author Tyler Solnikowski, Kanoa Ellis,  Kayla Davis
- * @version October 19th, 2017
- *
- */
+
 public interface ChessInterface {
-	
-    /**
+	/**
 	 * Returns whether the game is complete.
 	 *
-	 * @return true if complete, false otherwise.
+	 * @return {@code true} if complete, {@code false} otherwise.
 	 */
+	
 	boolean isComplete();
 
 	/**
-	 * Checks that user can move their piece to the desired location on
-	 * the board.
-	 * @param move A move on the board with a from and to location for
-	 * both row and column
-	 * @return true if move is possible, false otherwise
+	 * Returns whether the piece at location {@code [move.fromRow,
+	 *  move.fromColumn]} is allowed to move to location
+	 * {@code [move.fromRow, move.fromColumn]}.
+	 *
+	 * @param move a {@link W13project3.Move} object describing 
+	 * the move to be made.
+	 * @return {@code true} if the proposed move is valid, 
+	 * {@code false} otherwise.
+	 * @throws IndexOutOfBoundsException if either {@code 
+	 * [move.fromRow, move.fromColumn]} or {@code [move.toRow,
+	 * move.toColumn]} don't represent valid locations on the board.
 	 */
 	 
 	boolean isValidMove(Move move);
 
 	/**
-	 * Moves according to the provided data, Moves have a to and from
-	 * location used to verify where they were and if
-	 * they can move where the user wants them to.
-	 * @param move A move on the board with a from and to location for
-	 * both row and column
+	 * Moves the piece from location {@code [move.fromRow,
+	 *  move.fromColumn]} to location {@code [move.fromRow,
+	 * move.fromColumn]}.
+	 * @param move a {@link W13project3.Move} object describing
+	 *  the move to be made.
+	 * @throws IndexOutOfBoundsException if either {@code 
+	 * [move.fromRow, move.fromColumn]} or {@code [move.toRow,
+	 * move.toColumn]} don't represent valid locations on the board.
 	 */
 	void move(Move move);
 
 	/**
-	 * Method to determine if a player is in check
-	 * @param p A player, Black or White
-	 * @return true if the player's King is able to be captured in
-	 * the next move, otherwise false.
+	 * Report whether the current player p is in check.
+	 * @param  p {@link W13project3.Move} the Player being checked
+	 * @return {@code true} if the current player is in check, 
+	 * {@code false} otherwise.
 	 */
 	boolean inCheck(Player p);
 
 	/**
-	 * Returns which player's turn it is, used when trying to move
-	 * pieces to prohibit landing on their own pieces,
-	 * as well as when switching player's turns.
-	 * @return either BLACK or WHITE from Player enum to determine
-	 * which player's turn it is
+	 * Return the current player.
+	 *
+	 * @return the current player
 	 */
-	
 	Player currentPlayer();
 
 }
-
 

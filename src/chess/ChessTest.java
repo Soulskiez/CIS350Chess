@@ -1,12 +1,19 @@
 package chess;
 
+import static org.junit.Assert.*;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.Test;
 
-import org.junit.jupiter.api.Test;
+public class ChessTest {
 
-class ChessTest {
-
+	@Test 
+	public void Rooktest(){
+		boolean valid = false;
+		Move move = new Move(7, 6, 7, 7);
+		int board[][] = new int[8][8];
+		
+	}
+	
 	@Test
 	public void KnightTest2Up1RightCapture() {
 		boolean valid = false;
@@ -190,5 +197,7 @@ class ChessTest {
 		}
 		assertTrue(valid);
 	}
+	
+
 
 }

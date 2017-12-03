@@ -2,14 +2,14 @@ package chess;
 
 public class Pawn extends Piece {
 	// A variable to determine which side a given piece is.
-	private Player player;
+//	private Player player;
 
 	/**
 	 * A method that sets the player to the correct player.
 	 * 
 	 * @param player Variable to determine which side the piece belongs to.
 	 */
-	protected Pawn(final Player player) {
+	protected Pawn(Player player) {
 		super(player);
 	}
 
@@ -18,10 +18,10 @@ public class Pawn extends Piece {
 	 * 
 	 * @return player Variable to determine which side the piece belongs to.
 	 */
-	@Override
-	public Player player() {
-		return player;
-	}
+//	@Override
+//	public Player player() {
+//		return player;
+//	}
 	/**
 	 * Method that returns the type of the piece as a string.
 	 * 
@@ -33,8 +33,8 @@ public class Pawn extends Piece {
 	}
 
 	/**
-	 * Method that will return whether the movement of a given piece is
-	 * allowed for that piece.
+	 * Method that will return whether the movement of a given piece is allowed
+	 * for that piece.
 	 * 
 	 * @param move
 	 *            A specific move entered by the user.
@@ -43,7 +43,7 @@ public class Pawn extends Piece {
 	 * @return If the given move was a valid move.
 	 */
 	@Override
-	public boolean isValidMove(final Move move, final PieceInterface[][] board) {
+	public boolean isValidMove(Move move, PieceInterface[][] board) {
 		boolean valid = false;
 		// Check if player is WHITE
 		if (board[move.fromRow][move.fromColumn].player() == Player.WHITE) {
@@ -73,7 +73,7 @@ public class Pawn extends Piece {
 			// Check if you are in the WHITE Pawn starting row (6)
 			if (board[move.fromRow][move.fromColumn] == board[6][move.toColumn]) {
 				// Check if you moved up 2 spaces
-				if (board[move.fromRow + 2][move.fromColumn] == board[move.toRow][move.toColumn]) {
+				if (board[move.fromRow - 2][move.fromColumn] == board[move.toRow][move.toColumn]) {
 					i = move.fromColumn;
 					j = move.fromRow + 1;
 
@@ -131,10 +131,10 @@ public class Pawn extends Piece {
 				}
 
 			}
-			// Check if you are in the WHITE Pawn starting row (1)
+			// Check if you are in the BLACK Pawn starting row (1)
 			if (board[move.fromRow][move.fromColumn] == board[1][move.toRow]) {
 				// Check if you moved down 2 spaces
-				if (board[move.fromRow - 2][move.fromColumn] == board[move.toRow][move.toColumn]) {
+				if (board[move.fromRow + 2][move.fromColumn] == board[move.toRow][move.toColumn]) {
 					i = move.fromColumn;
 					j = move.fromRow - 1;
 

@@ -5,15 +5,14 @@ public class Move {
 	public int toRow;
 	public int fromColumn;
 	public int toColumn;
-
-	public Move() {
+	
+	public Move(){
 	}
-
-	public Move(final int fromRow, final int toRow, final int fromCol, final int toCol) {
+	public Move(int fromRow,int toRow,int fromCol, int toCol){
 		this.fromRow = fromRow;
 		this.toRow = toRow;
 		this.fromColumn = fromCol;
 		this.toColumn = toCol;
 	}
-
+	
 }
