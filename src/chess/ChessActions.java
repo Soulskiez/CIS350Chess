@@ -311,8 +311,15 @@ public class ChessActions extends JPanel {
 						else if(detect) {
 							tempMove = new Move(nRow, i, nCol, j);
 							
-							if(model.pieceAt(i, j) == null  && model.isValidMove(tempMove)) {
+							if(model.pieceAt(i, j) == null && model.isValidMove(tempMove)) {
 							
+								model.move(tempMove);
+								detect = false;
+								displayBoard();
+								
+							}
+							else if(model.pieceAt(i, j) != null && model.pieceAt(i, j).player() != model.pieceAt(nRow, nCol).player() && model.isValidMove(tempMove)) {
+								System.out.println("you hit a piece");
 								model.move(tempMove);
 								detect = false;
 								displayBoard();

@@ -52,7 +52,18 @@ public class King extends Piece {
 		if (board[move.fromRow][move.fromColumn] == board[move.toRow][move.toColumn]) {
 			valid = false;
 		}
-		
+		//Fixing error where index out of bounds occurs with moving to the top of the board.
+		else if(board[move.toRow][move.toColumn] == board[0][move.toColumn]) {
+			if(board[move.toRow][move.toColumn] == null) {
+				valid = true;
+			}
+		}
+		//Fixing error where index out of bounds occurs with moving to the bottom of the board.
+		else if(board[move.toRow][move.toColumn] == board[7][move.toColumn]) {
+			if(board[move.toRow][move.toColumn] == null) {
+				valid = true;
+			}
+		}
 		// Move up check
 		else if (board[move.fromRow][move.fromColumn] == board[move.toRow + 1][move.toColumn]) {
 			i = move.fromColumn;
@@ -121,7 +132,7 @@ public class King extends Piece {
 //			}
 
 		}
-
+		
 		// Move down check
 		else if (board[move.fromRow][move.fromColumn] == board[move.toRow - 1][move.toColumn]) {
 			i = move.fromColumn;

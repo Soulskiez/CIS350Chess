@@ -84,6 +84,13 @@ public class ChessBoard implements ChessInterface {
 		return valid;
 
 	}
+	
+	public void deletePiece() {
+		
+	}
+	
+	
+	
 
 	/*******************************************************************
 	 * This method moves the piece and updates it.
@@ -94,6 +101,7 @@ public class ChessBoard implements ChessInterface {
 		PieceInterface currentPiece = this.pieceAt(move.fromRow, move.fromColumn);
 		try {
 			PieceInterface newPiece = Piece.createPieceByType(currentPiece.type(), currentPiece.player());
+			board[move.toRow][move.toColumn] = null;
 			board[move.toRow][move.toColumn] = newPiece;
 //			System.out.println("move");
 //			System.out.println(newPiece.player());
@@ -113,6 +121,8 @@ public class ChessBoard implements ChessInterface {
 	public void setNextPlayer(){
 		player = player.next();
 	}
+	
+	
 
 	/*******************************************************************
 	 * This method determines whether or not the King piece is in check
