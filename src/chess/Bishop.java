@@ -54,7 +54,7 @@ public class Bishop extends Piece {
 
 		if (diffR == diffC) {
 			// Move left up
-			if (move.fromColumn > move.toColumn && move.fromRow < move.toRow) {
+			if (move.fromColumn > move.toColumn && move.fromRow > move.toRow) {
 
 				i = move.fromColumn - 1;
 				j = move.fromRow - 1;
@@ -74,7 +74,7 @@ public class Bishop extends Piece {
 				}
 			}
 			// Move left down
-			if (move.fromColumn > move.toColumn && move.fromRow > move.toRow) {
+			if (move.fromColumn > move.toColumn && move.fromRow < move.toRow) {
 
 				i = move.fromColumn - 1;
 				j = move.fromRow + 1;
@@ -94,7 +94,7 @@ public class Bishop extends Piece {
 				}
 			}
 			// Move right up
-			if (move.fromColumn < move.toColumn && move.fromRow < move.toRow) {
+			if (move.fromColumn < move.toColumn && move.fromRow > move.toRow) {
 
 				i = move.fromColumn + 1;
 				j = move.fromRow - 1;
@@ -114,7 +114,7 @@ public class Bishop extends Piece {
 				}
 			}
 			// Move right down
-			if (move.fromColumn < move.toColumn && move.fromRow > move.toRow) {
+			if (move.fromColumn < move.toColumn && move.fromRow < move.toRow) {
 
 				i = move.fromColumn + 1;
 				j = move.fromRow + 1;

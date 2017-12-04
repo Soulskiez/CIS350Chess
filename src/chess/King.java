@@ -52,125 +52,140 @@ public class King extends Piece {
 		if (board[move.fromRow][move.fromColumn] == board[move.toRow][move.toColumn]) {
 			valid = false;
 		}
-
+		
 		// Move up check
-		else if (board[move.fromRow + 1][move.fromColumn] == board[move.toRow][move.toColumn]) {
+		else if (board[move.fromRow][move.fromColumn] == board[move.toRow + 1][move.toColumn]) {
 			i = move.fromColumn;
 			j = move.fromRow + 1;
-			if (board[j][i] == null) {
+			if (board[move.toRow][move.toColumn] == null) {
 				valid = true;
-			} else if (board[j][i].player() != board[move.fromRow][move.fromColumn].player()) {
-				valid = true;
-
-			} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
-				valid = false;
-			}
+			} 
+//			else if (board[j][i].player() != board[move.fromRow][move.fromColumn].player()) {
+//				valid = true;
+//
+//			} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
+//				valid = false;
+//			}
 
 		}
-
+		//Fixing error where index out of bounds occurs with moving to the left of the board
+		else if(board[move.toRow][move.toColumn] == board[move.toRow][0]) {
+			if(board[move.toRow][move.toColumn] == null) {
+				valid = true;
+			}
+		}
 		// Move diagonal up right check
-		else if (board[move.fromRow + 1][move.fromColumn + 1] == board[move.toRow][move.toColumn]) {
+		else if (board[move.fromRow][move.fromColumn] == board[move.toRow + 1][move.toColumn - 1]) {
 			i = move.fromColumn + 1;
 			j = move.fromRow + 1;
-			if (board[j][i] == null) {
+			if (board[move.toRow][move.toColumn] == null) {
 				valid = true;
-			} else if (board[j][i].player() != board[move.fromRow][move.fromColumn].player()) {
-				valid = true;
-
-			} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
-				valid = false;
-			}
+			} 
+//			else if (board[j][i].player() != board[move.fromRow][move.fromColumn].player()) {
+//				valid = true;
+//
+//			} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
+//				valid = false;
+//			}
 
 		}
 
 		// Move right check
-		else if (board[move.fromRow][move.fromColumn + 1] == board[move.toRow][move.toColumn]) {
+		else if (board[move.fromRow][move.fromColumn] == board[move.toRow][move.toColumn - 1]) {
 			i = move.fromColumn + 1;
 			j = move.fromRow;
-			if (board[j][i] == null) {
+			if (board[move.toRow][move.toColumn] == null) {
 				valid = true;
-			} else if (board[j][i].player() != board[move.fromRow][move.fromColumn].player()) {
-				valid = true;
-
-			} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
-				valid = false;
-			}
+			} 
+//			else if (board[j][i].player() != board[move.fromRow][move.fromColumn].player()) {
+//				valid = true;
+//
+//			} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
+//				valid = false;
+//			}
 
 		}
 
 		// Move diagonal down right check
-		else if (board[move.fromRow - 1][move.fromColumn + 1] == board[move.toRow][move.toColumn]) {
+		else if (board[move.fromRow][move.fromColumn] == board[move.toRow - 1][move.toColumn - 1]) {
 			i = move.fromColumn + 1;
 			j = move.fromRow - 1;
-			if (board[j][i] == null) {
+			if (board[move.toRow][move.toColumn] == null) {
 				valid = true;
-			} else if (board[j][i].player() != board[move.fromRow][move.fromColumn].player()) {
-				valid = true;
-
-			} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
-				valid = false;
-			}
+			} 
+//			else if (board[j][i].player() != board[move.fromRow][move.fromColumn].player()) {
+//				valid = true;
+//
+//			} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
+//				valid = false;
+//			}
 
 		}
 
 		// Move down check
-		else if (board[move.fromRow - 1][move.fromColumn] == board[move.toRow][move.toColumn]) {
+		else if (board[move.fromRow][move.fromColumn] == board[move.toRow - 1][move.toColumn]) {
 			i = move.fromColumn;
 			j = move.fromRow - 1;
-			if (board[j][i] == null) {
+			if (board[move.toRow][move.toColumn] == null) {
 				valid = true;
-			} else if (board[j][i].player() != board[move.fromRow][move.fromColumn].player()) {
-				valid = true;
-
-			} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
-				valid = false;
-			}
+			} 
+//			else if (board[j][i].player() != board[move.fromRow][move.fromColumn].player()) {
+//				valid = true;
+//
+//			} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
+//				valid = false;
+//			}
 
 		}
 
 		// Move diagonal down left check
-		else if (board[move.fromRow - 1][move.fromColumn - 1] == board[move.toRow][move.toColumn]) {
+		else if (board[move.fromRow][move.fromColumn] == board[move.toRow - 1][move.toColumn + 1]) {
 			i = move.fromColumn - 1;
 			j = move.fromRow - 1;
-			if (board[j][i] == null) {
+			if (board[move.toRow][move.toColumn] == null) {
 				valid = true;
-			} else if (board[j][i].player() != board[move.fromRow][move.fromColumn].player()) {
-				valid = true;
-
-			} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
-				valid = false;
-			}
+			} 
+//			else if (board[j][i].player() != board[move.fromRow][move.fromColumn].player()) {
+//				valid = true;
+//
+//			} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
+//				valid = false;
+//			}
 
 		}
 
 		// Move left check
-		else if (board[move.fromRow][move.fromColumn - 1] == board[move.toRow][move.toColumn]) {
+		else if (board[move.fromRow][move.fromColumn] == board[move.toRow][move.toColumn + 1]) {
 			i = move.fromColumn - 1;
 			j = move.fromRow;
-			if (board[j][i] == null) {
+			if (board[move.toRow][move.toColumn] == null) {
 				valid = true;
-			} else if (board[j][i].player() != board[move.fromRow][move.fromColumn].player()) {
-				valid = true;
-
-			} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
-				valid = false;
-			}
+			} 
+//			else if (board[j][i].player() != board[move.fromRow][move.fromColumn].player()) {
+//				valid = true;
+//
+//			} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
+//				valid = false;
+//			}
 		}
 
 		// Move diagonal up left check
-		else if (board[move.fromRow + 1][move.fromColumn - 1] == board[move.toRow][move.toColumn]) {
+		else if (board[move.fromRow][move.fromColumn] == board[move.toRow + 1][move.toColumn + 1]) {
 			i = move.fromColumn - 1;
 			j = move.fromRow + 1;
-			if (board[j][i] == null) {
+			if (board[move.toRow][move.toColumn] == null) {
 				valid = true;
-			} else if (board[j][i].player() != board[move.fromRow][move.fromColumn].player()) {
-				valid = true;
-
-			} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
-				valid = false;
-			}
+			} 
+//			else if (board[j][i].player() != board[move.fromRow][move.fromColumn].player()) {
+//				valid = true;
+//
+//			} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
+//				valid = false;
+//			}
 
 		}
+		
+		
 
 		return valid;
 	}
