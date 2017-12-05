@@ -16,6 +16,7 @@ public class ChessActions extends JPanel {
 	private ArrayList <JButton> button = new ArrayList<JButton>();
 	
 	private boolean detect = false;
+	public boolean newGameB = true;
 	private int row = 8;
 	private int col = 8;
 	private int nRow = 0;
@@ -48,12 +49,14 @@ public class ChessActions extends JPanel {
 
 	private JButton[][] board;
 	private ChessBoard model;
+	private SquadBoard squadM;
 
 	// declare other instance variables as needed
 	private ButtonListener buttonListener = new ButtonListener();
 
 	private JButton Quit;
 	private JButton newGame;
+	private JButton squadGame;
 	private JButton Undo;
 	private JPanel Center;
 	private JPanel Other;
@@ -190,18 +193,25 @@ public class ChessActions extends JPanel {
 
 		// Quit button
 		Quit = new JButton("Quit Game");
+		
+		squadGame = new JButton("Squad Game");
 
 		// New Game button
 		newGame = new JButton("New Game");
 
 		// Adding action listeners to the buttons
 		Quit.addActionListener((ActionListener) buttonListener);
+		squadGame.addActionListener((ActionListener) buttonListener);
 		newGame.addActionListener((ActionListener) buttonListener);
+		
 
 		newGame.setBackground(Color.WHITE);
+		squadGame.setBackground(Color.WHITE);
 		Quit.setBackground(Color.WHITE);
 
+		
 		Other.add(newGame);
+		Other.add(squadGame);
 		Other.add(Quit);
 		Other.setLayout(new GridLayout(3, 2));
 		Center.setLayout(new GridLayout(8, 8));
@@ -268,6 +278,163 @@ public class ChessActions extends JPanel {
 		repaint();
 
 	}
+	
+	private void squadGame() {
+		removeAll();
+		Center = new JPanel();
+		Other = new JPanel();
+		newGameB = false;
+
+		 squadM = new SquadBoard();
+
+		// Quit button
+		Quit = new JButton("Quit Game");
+		// Squad Game button
+		squadGame = new JButton("Squad Game");
+		// New Game button
+		newGame = new JButton("New Game");
+
+		// Adding action listeners to the buttons
+		Quit.addActionListener((ActionListener) buttonListener);
+		squadGame.addActionListener((ActionListener) buttonListener);
+		newGame.addActionListener((ActionListener) buttonListener);
+
+		newGame.setBackground(Color.WHITE);
+		squadGame.setBackground(Color.WHITE);
+		Quit.setBackground(Color.WHITE);
+
+		Other.add(newGame);
+		Other.add(squadGame);
+		Other.add(Quit);
+		Other.setLayout(new GridLayout(3, 2));
+		Center.setLayout(new GridLayout(8, 8));
+
+		// Instantiating the JButtons
+		board = new JButton[row][col];
+		for (int r = 0; r < row; r++) {
+			for (int c = 0; c < col; c++) {
+				board[r][c] = new JButton();
+			}
+		}
+
+		// Black Pieces
+		board[0][3].setText(bRook);
+		board[0][4].setText(bKing);
+		board[1][3].setText(bKnight);
+		board[1][4].setText(bKnight);
+		board[2][3].setText(bPawn);
+		board[2][4].setText(bPawn);
+		
+		//White Pieces
+		board[7][3].setText(wRook);
+		board[7][4].setText(wKing);
+		board[6][3].setText(wKnight);
+		board[6][4].setText(wKnight);
+		board[5][3].setText(wPawn);
+		board[5][4].setText(wPawn);
+
+		for (int row = 0; row < 8; row++) {
+			for (int col = 0; col < 8; col++) {
+
+				// Adding colors for the design of the board
+				if ((col % 2 == 1 && row % 2 == 1) || (col % 2 == 0 && row % 2 == 0)) {
+					board[row][col].setBackground(Color.WHITE);
+				} else {
+					board[row][col].setBackground(Color.BLACK);
+				}
+
+				board[row][col].setPreferredSize(new Dimension(60, 60));
+				board[row][col].setMargin(new Insets(0, 0, 0, 0));
+				board[row][col].setBorder(null);
+				board[row][col].addActionListener(buttonListener);
+				Center.add(board[row][col]);
+				board[row][col].setFocusPainted(false);
+			}
+
+		}
+		add(Center, BorderLayout.CENTER);
+		add(Other, BorderLayout.SOUTH);
+
+		displaySquadBoard();
+
+		revalidate();
+		repaint();
+
+	}
+	
+private void displaySquadBoard() {
+		
+		// Scanning each slot on the board
+		for (int r = 0; r < squadM.numRows(); r++) {
+			for (int c = 0; c < squadM.numColumns(); c++) {
+				
+				// If the slot is not empty, there must be a piece there,
+				// if there is, search for the type and the color and
+				// set the appropriate icon.
+				if (squadM.pieceAt(r, c) != null) {
+
+
+					if ((squadM.pieceAt(r, c).type().equals("King")) && (squadM.pieceAt(r, c).player() == (Player.BLACK)))
+						board[r][c].setText(bKing);
+
+					if ((squadM.pieceAt(r, c).type().equals("King")) && (squadM.pieceAt(r, c).player() == (Player.WHITE)))
+						board[r][c].setText(wKing);
+
+
+
+					if ((squadM.pieceAt(r, c).type().equals("Pawn")) && (squadM.pieceAt(r, c).player() == (Player.BLACK)))
+						board[r][c].setText(bPawn);
+					if(r == 5 && c == 5) {
+						//System.out.println(model.pieceAt(r,  c).type());
+						//System.out.println(model.pieceAt(r,  c).player());
+					}
+					if ((squadM.pieceAt(r, c).type().equals("Pawn")) && (squadM.pieceAt(r, c).player() == (Player.WHITE))) {
+						board[r][c].setText(wPawn);
+					}
+
+					if ((squadM.pieceAt(r, c).type().equals("Knight"))
+							&& (squadM.pieceAt(r, c).player() == (Player.BLACK)))
+						board[r][c].setText(bKnight);
+
+					if ((squadM.pieceAt(r, c).type().equals("Knight"))
+							&& (squadM.pieceAt(r, c).player() == (Player.WHITE)))
+						board[r][c].setText(wKnight);
+
+					if ((squadM.pieceAt(r, c).type().equals("Rook")) && (squadM.pieceAt(r, c).player() == (Player.BLACK)))
+						board[r][c].setText(bRook);
+
+					if ((squadM.pieceAt(r, c).type().equals("Rook")) && (squadM.pieceAt(r, c).player() == (Player.WHITE)))
+						board[r][c].setText(wRook);
+
+				} else {
+					board[r][c].setText(blank);
+				}
+			}
+		}
+	}
+
+public boolean gameOver() {
+	boolean whiteKing = false;
+	boolean blackKing = false;
+	for(int i = 0; i < board.length; i++) {
+		for(int j = 0; j < board[i].length; j++) {
+			if(model.pieceAt(i,j) != null){
+			if(model.pieceAt(i,j).type() == "King" && model.pieceAt(i,j).player() == Player.WHITE) {
+				whiteKing = true;
+			}
+			else if(model.pieceAt(i,j).type() == "King" && model.pieceAt(i,j).player() == Player.BLACK) {
+				blackKing = true;
+			}
+		}
+		}
+	}
+	if(blackKing == whiteKing) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
 
 	/***********************************************************************
 	 * The button listener makes sure that when a button is clicked, the
@@ -298,7 +465,11 @@ public class ChessActions extends JPanel {
 
 				NewGame();
 			}
+			if(event.getSource() == squadGame) {
+				squadGame();
+			}
 			
+			if(newGameB) {
 			for(int i = 0; i < board.length; i++) {
 				for(int j = 0; j < board[i].length; j++) {
 					if(event.getSource() == board[i][j]) {
@@ -307,6 +478,10 @@ public class ChessActions extends JPanel {
 							nCol = j;
 							detect = true;
 							displayBoard();
+							if(!gameOver()) {
+								JOptionPane.showMessageDialog(null, "Game Over" + " Goodbye", "Chess",
+										JOptionPane.INFORMATION_MESSAGE, BOARD);
+							}
 						}
 						else if(detect) {
 							tempMove = new Move(nRow, i, nCol, j);
@@ -316,13 +491,55 @@ public class ChessActions extends JPanel {
 								model.move(tempMove);
 								detect = false;
 								displayBoard();
-								
+								if(!gameOver()) {
+									JOptionPane.showMessageDialog(null, "Game Over" + " Goodbye", "Chess",
+											JOptionPane.INFORMATION_MESSAGE, BOARD);
+								}
 							}
 							else if(model.pieceAt(i, j) != null && model.pieceAt(i, j).player() != model.pieceAt(nRow, nCol).player() && model.isValidMove(tempMove)) {
 								System.out.println("you hit a piece");
 								model.move(tempMove);
 								detect = false;
 								displayBoard();
+								if(!gameOver()) {
+									JOptionPane.showMessageDialog(null, "Game Over" + " Goodbye", "Chess",
+											JOptionPane.INFORMATION_MESSAGE, BOARD);
+								}
+							}
+							else {
+								detect = false;
+							}
+						}
+						
+					}
+				}
+			}
+			}
+			else if(!newGameB) {
+			for(int i = 0; i < board.length; i++) {
+				for(int j = 0; j < board[i].length; j++) {
+					if(event.getSource() == board[i][j]) {
+						if(!detect && squadM.pieceAt(i, j) != null) {
+							nRow = i;
+							nCol = j;
+							detect = true;
+							displaySquadBoard();
+						}
+						else if(detect) {
+							tempMove = new Move(nRow, i, nCol, j);
+							
+							if(squadM.pieceAt(i, j) == null && squadM.isValidMove(tempMove)) {
+							
+								squadM.move(tempMove);
+								detect = false;
+								displaySquadBoard();
+								
+							}
+							else if(squadM.pieceAt(i, j) != null && squadM.pieceAt(i, j).player() != squadM.pieceAt(nRow, nCol).player() && squadM.isValidMove(tempMove)) {
+								System.out.println("you hit a piece");
+								squadM.move(tempMove);
+								detect = false;
+								displaySquadBoard();
 								
 							}
 							else {
@@ -332,6 +549,7 @@ public class ChessActions extends JPanel {
 						
 					}
 				}
+			}
 			}
 			
 			

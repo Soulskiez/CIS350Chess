@@ -124,7 +124,7 @@ public class Knight extends Piece {
 			}
 
 		// Down 2 right 1
-		if (move.toRow == move.fromRow + 2 && move.toColumn == move.fromColumn - 1)
+		if (move.toRow - 2 == move.fromRow && move.toColumn - 1 == move.fromColumn)
 			if (board[move.toRow][move.toColumn] == null)
 				valid = true;
 			else {

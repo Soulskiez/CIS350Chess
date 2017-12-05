@@ -53,15 +53,27 @@ public class King extends Piece {
 			valid = false;
 		}
 		//Fixing error where index out of bounds occurs with moving to the top of the board.
-		else if(board[move.toRow][move.toColumn] == board[0][move.toColumn]) {
+		else if(move.toRow == 0) {
 			if(board[move.toRow][move.toColumn] == null) {
 				valid = true;
 			}
+			else if (board[move.fromRow][move.fromColumn].player() != board[move.toRow][move.toColumn].player()) {
+				valid = true;
+
+			} else if (board[move.fromRow][move.fromColumn].player() == board[move.toRow][move.toColumn].player()) {
+				valid = false;
+			}
 		}
 		//Fixing error where index out of bounds occurs with moving to the bottom of the board.
-		else if(board[move.toRow][move.toColumn] == board[7][move.toColumn]) {
+		else if(move.toRow == 7) {
 			if(board[move.toRow][move.toColumn] == null) {
 				valid = true;
+			}
+			else if (board[move.fromRow][move.fromColumn].player() != board[move.toRow][move.toColumn].player()) {
+				valid = true;
+
+			} else if (board[move.fromRow][move.fromColumn].player() == board[move.toRow][move.toColumn].player()) {
+				valid = false;
 			}
 		}
 		// Move up check
@@ -71,18 +83,27 @@ public class King extends Piece {
 			if (board[move.toRow][move.toColumn] == null) {
 				valid = true;
 			} 
-//			else if (board[j][i].player() != board[move.fromRow][move.fromColumn].player()) {
-//				valid = true;
-//
-//			} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
-//				valid = false;
-//			}
+			else if (board[move.fromRow][move.fromColumn].player() != board[move.toRow][move.toColumn].player()) {
+				valid = true;
+
+			} else if (board[move.fromRow][move.fromColumn].player() == board[move.toRow][move.toColumn].player()) {
+				valid = false;
+			}
 
 		}
 		//Fixing error where index out of bounds occurs with moving to the left of the board
-		else if(board[move.toRow][move.toColumn] == board[move.toRow][0]) {
+		
+		else if(move.toColumn == 0) {
+			System.out.println(board[move.toRow][move.toColumn]);
+			System.out.println(board[move.toRow][0]);
 			if(board[move.toRow][move.toColumn] == null) {
 				valid = true;
+			}
+			else if (board[move.fromRow][move.fromColumn].player() != board[move.toRow][move.toColumn].player()) {
+				valid = true;
+
+			} else if (board[move.fromRow][move.fromColumn].player() == board[move.toRow][move.toColumn].player()) {
+				valid = false;
 			}
 		}
 		// Move diagonal up right check
@@ -92,12 +113,12 @@ public class King extends Piece {
 			if (board[move.toRow][move.toColumn] == null) {
 				valid = true;
 			} 
-//			else if (board[j][i].player() != board[move.fromRow][move.fromColumn].player()) {
-//				valid = true;
-//
-//			} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
-//				valid = false;
-//			}
+			else if (board[move.fromRow][move.fromColumn].player() != board[move.toRow][move.toColumn].player()) {
+				valid = true;
+
+			} else if (board[move.fromRow][move.fromColumn].player() == board[move.toRow][move.toColumn].player()) {
+				valid = false;
+			}
 
 		}
 
@@ -108,12 +129,12 @@ public class King extends Piece {
 			if (board[move.toRow][move.toColumn] == null) {
 				valid = true;
 			} 
-//			else if (board[j][i].player() != board[move.fromRow][move.fromColumn].player()) {
-//				valid = true;
-//
-//			} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
-//				valid = false;
-//			}
+			else if (board[move.fromRow][move.fromColumn].player() != board[move.toRow][move.toColumn].player()) {
+				valid = true;
+
+			} else if (board[move.fromRow][move.fromColumn].player() == board[move.toRow][move.toColumn].player()) {
+				valid = false;
+			}
 
 		}
 
@@ -124,12 +145,12 @@ public class King extends Piece {
 			if (board[move.toRow][move.toColumn] == null) {
 				valid = true;
 			} 
-//			else if (board[j][i].player() != board[move.fromRow][move.fromColumn].player()) {
-//				valid = true;
-//
-//			} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
-//				valid = false;
-//			}
+			else if (board[move.fromRow][move.fromColumn].player() != board[move.toRow][move.toColumn].player()) {
+				valid = true;
+
+			} else if (board[move.fromRow][move.fromColumn].player() == board[move.toRow][move.toColumn].player()) {
+				valid = false;
+			}
 
 		}
 		
@@ -140,12 +161,12 @@ public class King extends Piece {
 			if (board[move.toRow][move.toColumn] == null) {
 				valid = true;
 			} 
-//			else if (board[j][i].player() != board[move.fromRow][move.fromColumn].player()) {
-//				valid = true;
-//
-//			} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
-//				valid = false;
-//			}
+			else if (board[move.fromRow][move.fromColumn].player() != board[move.toRow][move.toColumn].player()) {
+				valid = true;
+
+			} else if (board[move.fromRow][move.fromColumn].player() == board[move.toRow][move.toColumn].player()) {
+				valid = false;
+			}
 
 		}
 
@@ -156,13 +177,12 @@ public class King extends Piece {
 			if (board[move.toRow][move.toColumn] == null) {
 				valid = true;
 			} 
-//			else if (board[j][i].player() != board[move.fromRow][move.fromColumn].player()) {
-//				valid = true;
-//
-//			} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
-//				valid = false;
-//			}
+			else if (board[move.fromRow][move.fromColumn].player() != board[move.toRow][move.toColumn].player()) {
+				valid = true;
 
+			} else if (board[move.fromRow][move.fromColumn].player() == board[move.toRow][move.toColumn].player()) {
+				valid = false;
+			}
 		}
 
 		// Move left check
@@ -172,12 +192,12 @@ public class King extends Piece {
 			if (board[move.toRow][move.toColumn] == null) {
 				valid = true;
 			} 
-//			else if (board[j][i].player() != board[move.fromRow][move.fromColumn].player()) {
-//				valid = true;
-//
-//			} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
-//				valid = false;
-//			}
+			else if (board[move.fromRow][move.fromColumn].player() != board[move.toRow][move.toColumn].player()) {
+				valid = true;
+
+			} else if (board[move.fromRow][move.fromColumn].player() == board[move.toRow][move.toColumn].player()) {
+				valid = false;
+			}
 		}
 
 		// Move diagonal up left check
@@ -187,12 +207,12 @@ public class King extends Piece {
 			if (board[move.toRow][move.toColumn] == null) {
 				valid = true;
 			} 
-//			else if (board[j][i].player() != board[move.fromRow][move.fromColumn].player()) {
-//				valid = true;
-//
-//			} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
-//				valid = false;
-//			}
+			else if (board[move.fromRow][move.fromColumn].player() != board[move.toRow][move.toColumn].player()) {
+				valid = true;
+
+			} else if (board[move.fromRow][move.fromColumn].player() == board[move.toRow][move.toColumn].player()) {
+				valid = false;
+			}
 
 		}
 		

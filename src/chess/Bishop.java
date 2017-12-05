@@ -2,13 +2,12 @@ package chess;
 
 public class Bishop extends Piece {
 	// A variable to determine which side a given piece is.
-	// private Player player;
+//	private Player player;
 
 	/**
 	 * A method that sets the player to the correct player.
 	 * 
-	 * @param player
-	 *            Variable to determine which side the piece belongs to.
+	 * @param player Variable to determine which side the piece belongs to.
 	 */
 	protected Bishop(Player player) {
 		super(player);
@@ -19,10 +18,10 @@ public class Bishop extends Piece {
 	 * 
 	 * @return player Variable to determine which side the piece belongs to.
 	 */
-	// @Override
-	// public Player player() {
-	// return player;
-	// }
+//	@Override
+//	public Player player() {
+//		return player;
+//	}
 
 	/**
 	 * Method that returns the type of the piece as a string.
@@ -33,10 +32,10 @@ public class Bishop extends Piece {
 	public String type() {
 		return "Bishop";
 	}
-
+	
 	/**
-	 * Method that will return whether the movement of a given piece is allowed for
-	 * that piece.
+	 * Method that will return whether the movement of a given piece is allowed
+	 * for that piece.
 	 * 
 	 * @param move
 	 *            A specific move entered by the user.
@@ -64,12 +63,8 @@ public class Bishop extends Piece {
 					if (board[j][i] == null) {
 						valid = true;
 					} else if (board[j][i].player() != board[move.fromRow][move.fromColumn].player()) {
-						if (j == move.toRow) {
-							valid = true;
-						} else {
-							valid = false;
-							break;
-						}
+						valid = true;
+						break;
 					} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
 						valid = false;
 						break;
@@ -88,12 +83,8 @@ public class Bishop extends Piece {
 					if (board[j][i] == null) {
 						valid = true;
 					} else if (board[j][i].player() != board[move.fromRow][move.fromColumn].player()) {
-						if (j == move.toRow) {
-							valid = true;
-						} else {
-							valid = false;
-							break;
-						}
+						valid = true;
+						break;
 					} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
 						valid = false;
 						break;
@@ -112,12 +103,8 @@ public class Bishop extends Piece {
 					if (board[j][i] == null) {
 						valid = true;
 					} else if (board[j][i].player() != board[move.fromRow][move.fromColumn].player()) {
-						if (j == move.toRow) {
-							valid = true;
-						} else {
-							valid = false;
-							break;
-						}
+						valid = true;
+						break;
 					} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
 						valid = false;
 						break;
@@ -136,12 +123,8 @@ public class Bishop extends Piece {
 					if (board[j][i] == null) {
 						valid = true;
 					} else if (board[j][i].player() != board[move.fromRow][move.fromColumn].player()) {
-						if (j == move.toRow) {
-							valid = true;
-						} else {
-							valid = false;
-							break;
-						}
+						valid = true;
+						break;
 					} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
 						valid = false;
 						break;
