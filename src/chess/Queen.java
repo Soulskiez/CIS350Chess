@@ -98,7 +98,7 @@ public class Queen extends Piece {
 					} // end of move down
 				}
 				// Move left or right
-				if (move.fromRow == move.toRow) {
+				else if (move.fromRow == move.toRow) {
 					// Move left
 					if (move.fromColumn > move.toColumn) {
 						for (j = move.fromColumn - 1; j >= move.toColumn; j--) {
@@ -144,87 +144,89 @@ public class Queen extends Piece {
 						}
 					} // end of move right
 				}
-				if (move.fromColumn > move.toColumn && move.fromRow > move.toRow) {
+				// Diagonal
+				else if (diffR == diffC) {
+					// Move left up
+					if (move.fromColumn > move.toColumn && move.fromRow > move.toRow) {
 
-					i = move.fromColumn - 1;
-					j = move.fromRow - 1;
+						i = move.fromColumn - 1;
+						j = move.fromRow - 1;
 
-					while (i >= move.toColumn && j >= move.toRow) {
-						if (board[j][i] == null) {
-							valid = true;
-						} else if (board[j][i].player() != board[move.fromRow][move.fromColumn].player()) {
-							valid = true;
-							break;
-						} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
-							valid = false;
-							break;
+						while (i >= move.toColumn && j >= move.toRow) {
+							if (board[j][i] == null) {
+								valid = true;
+							} else if (board[j][i].player() != board[move.fromRow][move.fromColumn].player()) {
+								valid = true;
+								break;
+							} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
+								valid = false;
+								break;
+							}
+							i--;
+							j--;
 						}
-						i--;
-						j--;
+					}
+					// Move left down
+					if (move.fromColumn > move.toColumn && move.fromRow < move.toRow) {
+
+						i = move.fromColumn - 1;
+						j = move.fromRow + 1;
+
+						while (i >= move.toColumn && j <= move.toRow) {
+							if (board[j][i] == null) {
+								valid = true;
+							} else if (board[j][i].player() != board[move.fromRow][move.fromColumn].player()) {
+								valid = true;
+								break;
+							} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
+								valid = false;
+								break;
+							}
+							i--;
+							j++;
+						}
+					}
+					// Move right up
+					if (move.fromColumn < move.toColumn && move.fromRow > move.toRow) {
+
+						i = move.fromColumn + 1;
+						j = move.fromRow - 1;
+
+						while (i <= move.toColumn && j >= move.toRow) {
+							if (board[j][i] == null) {
+								valid = true;
+							} else if (board[j][i].player() != board[move.fromRow][move.fromColumn].player()) {
+								valid = true;
+								break;
+							} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
+								valid = false;
+								break;
+							}
+							i++;
+							j--;
+						}
+					}
+					// Move right down
+					if (move.fromColumn < move.toColumn && move.fromRow < move.toRow) {
+
+						i = move.fromColumn + 1;
+						j = move.fromRow + 1;
+
+						while (i <= move.toColumn && j <= move.toRow) {
+							if (board[j][i] == null) {
+								valid = true;
+							} else if (board[j][i].player() != board[move.fromRow][move.fromColumn].player()) {
+								valid = true;
+								break;
+							} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
+								valid = false;
+								break;
+							}
+							i++;
+							j++;
+						}
 					}
 				}
-				// Move left down
-				if (move.fromColumn > move.toColumn && move.fromRow < move.toRow) {
-
-					i = move.fromColumn - 1;
-					j = move.fromRow + 1;
-
-					while (i >= move.toColumn && j <= move.toRow) {
-						if (board[j][i] == null) {
-							valid = true;
-						} else if (board[j][i].player() != board[move.fromRow][move.fromColumn].player()) {
-							valid = true;
-							break;
-						} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
-							valid = false;
-							break;
-						}
-						i--;
-						j++;
-					}
-				}
-				// Move right up
-				if (move.fromColumn < move.toColumn && move.fromRow > move.toRow) {
-
-					i = move.fromColumn + 1;
-					j = move.fromRow - 1;
-
-					while (i <= move.toColumn && j >= move.toRow) {
-						if (board[j][i] == null) {
-							valid = true;
-						} else if (board[j][i].player() != board[move.fromRow][move.fromColumn].player()) {
-							valid = true;
-							break;
-						} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
-							valid = false;
-							break;
-						}
-						i++;
-						j--;
-					}
-				}
-				// Move right down
-				if (move.fromColumn < move.toColumn && move.fromRow < move.toRow) {
-
-					i = move.fromColumn + 1;
-					j = move.fromRow + 1;
-
-					while (i <= move.toColumn && j <= move.toRow) {
-						if (board[j][i] == null) {
-							valid = true;
-						} else if (board[j][i].player() != board[move.fromRow][move.fromColumn].player()) {
-							valid = true;
-							break;
-						} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
-							valid = false;
-							break;
-						}
-						i++;
-						j++;
-					}
-				}
-				
-
 		return valid;
 	}
 }
