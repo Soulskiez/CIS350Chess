@@ -156,8 +156,12 @@ public class Queen extends Piece {
 							if (board[j][i] == null) {
 								valid = true;
 							} else if (board[j][i].player() != board[move.fromRow][move.fromColumn].player()) {
-								valid = true;
-								break;
+								if (j == move.toRow) {
+									valid = true;
+								} else {
+									valid = false;
+									break;
+								}
 							} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
 								valid = false;
 								break;
@@ -176,8 +180,12 @@ public class Queen extends Piece {
 							if (board[j][i] == null) {
 								valid = true;
 							} else if (board[j][i].player() != board[move.fromRow][move.fromColumn].player()) {
-								valid = true;
-								break;
+								if (j == move.toRow) {
+									valid = true;
+								} else {
+									valid = false;
+									break;
+								}
 							} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
 								valid = false;
 								break;
@@ -196,8 +204,12 @@ public class Queen extends Piece {
 							if (board[j][i] == null) {
 								valid = true;
 							} else if (board[j][i].player() != board[move.fromRow][move.fromColumn].player()) {
-								valid = true;
-								break;
+								if (j == move.toRow) {
+									valid = true;
+								} else {
+									valid = false;
+									break;
+								}
 							} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
 								valid = false;
 								break;
@@ -216,8 +228,12 @@ public class Queen extends Piece {
 							if (board[j][i] == null) {
 								valid = true;
 							} else if (board[j][i].player() != board[move.fromRow][move.fromColumn].player()) {
-								valid = true;
-								break;
+								if (j == move.toRow) {
+									valid = true;
+								} else {
+									valid = false;
+									break;
+								}
 							} else if (board[j][i].player() == board[move.fromRow][move.fromColumn].player()) {
 								valid = false;
 								break;
