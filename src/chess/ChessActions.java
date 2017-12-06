@@ -598,6 +598,9 @@ public class ChessActions extends JPanel {
 			return false;
 		}
 	}
+	
+	
+		
 
 	/***********************************************************************
 	 * The button listener makes sure that when a button is clicked, the appropriate
@@ -643,6 +646,7 @@ public class ChessActions extends JPanel {
 								nRow = i;
 								nCol = j;
 								detect = true;
+								model.pawnUpgrade();
 								displayBoard();
 								if (!gameOver()) {
 									JOptionPane.showMessageDialog(null, "Game Over" + " Goodbye", "Chess",
@@ -655,6 +659,7 @@ public class ChessActions extends JPanel {
 
 									model.move(tempMove);
 									detect = false;
+									model.pawnUpgrade();
 									displayBoard();
 									if (!gameOver()) {
 										JOptionPane.showMessageDialog(null, "Game Over" + " Goodbye", "Chess",
@@ -666,6 +671,7 @@ public class ChessActions extends JPanel {
 									System.out.println("you hit a piece");
 									model.move(tempMove);
 									detect = false;
+									model.pawnUpgrade();
 									displayBoard();
 									if (!gameOver()) {
 										JOptionPane.showMessageDialog(null, "Game Over" + " Goodbye", "Chess",

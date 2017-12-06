@@ -8,6 +8,15 @@ public class KnightsBoard implements ChessInterface {
 	public int toRow;
 	public int fromCol;
 	public int toCol;
+	int rand1 = (int) Math.ceil(Math.random() * 0);
+	int rand2 = (int) Math.ceil(Math.random() * 1);
+	int rand3 = (int) Math.ceil(Math.random() * 2);
+	int rand4 = (int) Math.ceil(Math.random() * 3);
+	int rand5 = (int) Math.ceil(Math.random() * 4);
+	int rand6 = (int) Math.ceil(Math.random() * 5);
+	int rand7 = (int) Math.ceil(Math.random() * 6);
+	int rand8 = (int) Math.ceil(Math.random() * 7);
+	
 	
 	
 	/*The chess board*/
@@ -29,15 +38,15 @@ public class KnightsBoard implements ChessInterface {
 		
 		board=new PieceInterface[8][8];
 		
-		board[0][2]=new Knight(Player.BLACK);
-		board[0][3]=new Knight(Player.BLACK);
-		board[0][4]=new Knight(Player.BLACK);
-		board[0][5]=new Knight(Player.BLACK);
+		board[rand7][rand3]=new Knight(Player.BLACK);
+		board[rand1][rand5]=new Knight(Player.BLACK);
+		board[rand6][rand1]=new Knight(Player.BLACK);
+		board[rand4][rand6]=new Knight(Player.BLACK);
 	
-		board[7][2]=new Knight(Player.WHITE);
-		board[7][3]=new Knight(Player.WHITE);
-		board[7][4]=new Knight(Player.WHITE);
-		board[7][5]=new Knight(Player.WHITE);
+		board[rand5][rand8]=new Knight(Player.WHITE);
+		board[rand3][rand2]=new Knight(Player.WHITE);
+		board[rand2][rand7]=new Knight(Player.WHITE);
+		board[rand8][rand4]=new Knight(Player.WHITE);
 	}
 
 	/*******************************************************************
