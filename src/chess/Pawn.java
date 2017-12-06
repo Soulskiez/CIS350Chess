@@ -62,6 +62,7 @@ public class Pawn extends Piece {
 			}
 			// Check if you are in the WHITE Pawn starting row (6)
 			if (board[move.fromRow][move.fromColumn] == board[6][move.fromColumn]) {
+				
 				// Check if you moved up 2 spaces
 				if (board[move.fromRow][move.fromColumn] == board[move.toRow + 2][move.toColumn]) {
 					for (i = move.fromRow - 1; i >= move.toRow; i--) {

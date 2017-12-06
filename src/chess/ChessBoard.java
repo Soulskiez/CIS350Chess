@@ -10,6 +10,7 @@ public class ChessBoard implements ChessInterface {
 
 	/* The chess board */
 	private PieceInterface[][] board;
+	private PieceInterface[][] board2;
 
 	/* The player which holds the piece */
 	private Player player = Player.WHITE;
@@ -98,6 +99,26 @@ public class ChessBoard implements ChessInterface {
 			}
 		}
 	}
+	
+//	public PieceInterface[][] undoMove(){
+//		int counter = 0;
+//		board2 = new PieceInterface[8][8];
+//		for(int i = 0; i < 7; i++) {
+//			for(int j = 0; j < 7; j++) {
+//				board2[i][j] = board[i][j];
+//			}
+//		}
+//		for(int i = 0; i < 7; i++) {
+//			for(int j = 0; j < 7; j++) {
+//				if(board2[i][j] != board[i][j]) {
+//					counter++;
+//				}
+//			}
+//		}
+//		if(counter >= 2) {
+//			
+//		}
+//	}
 
 	/*******************************************************************
 	 * This method moves the piece and updates it. @param move which holds the

@@ -74,8 +74,23 @@ public class SquadBoard implements ChessInterface {
 
 	}
 	
-	public void deletePiece() {
-		
+	public void pawnUpgrade() {
+		boolean whitePawn = false;
+		boolean blackPawn = false;
+		for (int i = 0; i < 7; i++) {
+			if (board[0][i] != null) {
+				if (board[0][i].type() == "Pawn") {
+					board[0][i] = null;
+					board[0][i] = new Queen(Player.WHITE);
+				} 
+			}
+			if (board[7][i] != null) {
+				if (board[7][i].type() == "Pawn") {
+					board[7][i] = null;
+					board[7][i] = new Queen(Player.BLACK);
+				} 
+			}
+		}
 	}
 	
 	
