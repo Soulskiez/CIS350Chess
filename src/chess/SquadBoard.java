@@ -22,11 +22,6 @@ public class SquadBoard implements ChessInterface {
 	/*Instantiates the board and all the different pieces*/
 	public SquadBoard() {
 		
-		this.fromRow = fromRow;
-		this.toRow = toRow;
-		this.fromCol = fromCol;
-		this.toCol = toCol;
-		
 		board=new PieceInterface[8][8];
 		board[0][3]=new Rook(Player.BLACK);
 		board[0][4]=new King(Player.BLACK);
@@ -75,8 +70,8 @@ public class SquadBoard implements ChessInterface {
 	}
 	
 	public void pawnUpgrade() {
-		boolean whitePawn = false;
-		boolean blackPawn = false;
+		//boolean whitePawn = false;
+		//boolean blackPawn = false;
 		for (int i = 0; i < 7; i++) {
 			if (board[0][i] != null) {
 				if (board[0][i].type() == "Pawn") {

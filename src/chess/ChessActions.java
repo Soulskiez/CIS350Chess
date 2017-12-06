@@ -7,13 +7,13 @@ import java.awt.GridLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import javax.swing.*;
-import java.awt.image.BufferedImage;
+//import java.awt.image.BufferedImage;
 
 public class ChessActions extends JPanel {
 
-	private ArrayList<JButton> button = new ArrayList<JButton>();
+	//private ArrayList<JButton> button = new ArrayList<JButton>();
 
 	private boolean detect = false;
 	public boolean newGameB = true;
@@ -60,7 +60,7 @@ public class ChessActions extends JPanel {
 	private JButton newGame;
 	private JButton squadGame;
 	private JButton KnightsGame;
-	private JButton Undo;
+	//private JButton Undo;
 	private JPanel Center;
 	private JPanel Other;
 
@@ -73,18 +73,27 @@ public class ChessActions extends JPanel {
 
 		// Quit button
 		Quit = new JButton("Quit Game");
-
+		// Squad Game button
+		squadGame = new JButton("Squad Game");
+		// Knights Game button
+		KnightsGame = new JButton("Knights Game");
 		// New Game button
 		newGame = new JButton("New Game");
 
 		// Adding action listeners to the buttons
 		Quit.addActionListener((ActionListener) buttonListener);
+		squadGame.addActionListener((ActionListener) buttonListener);
+		KnightsGame.addActionListener((ActionListener) buttonListener);
 		newGame.addActionListener((ActionListener) buttonListener);
 
 		newGame.setBackground(Color.WHITE);
+		squadGame.setBackground(Color.WHITE);
+		KnightsGame.setBackground(Color.WHITE);
 		Quit.setBackground(Color.WHITE);
 
 		Other.add(newGame);
+		Other.add(squadGame);
+		Other.add(KnightsGame);
 		Other.add(Quit);
 		Other.setLayout(new GridLayout(3, 2));
 		Center.setLayout(new GridLayout(8, 8));
@@ -101,7 +110,7 @@ public class ChessActions extends JPanel {
 			for (int col = 0; col < 8; col++) {
 
 				// Adding colors for the design of the board
-				if ((col % 2 == 1 && row % 2 == 1) || (col % 2 == 0 && row % 2 == 0)) {
+				if ((col % 2 != 0 && row % 2 != 0) || (col % 2 == 0 && row % 2 == 0)) {
 					board[row][col].setBackground(Color.WHITE);
 				} else {
 					board[row][col].setBackground(Color.BLACK);
@@ -299,7 +308,7 @@ public class ChessActions extends JPanel {
 			for (int col = 0; col < 8; col++) {
 
 				// Adding colors for the design of the board
-				if ((col % 2 == 1 && row % 2 == 1) || (col % 2 == 0 && row % 2 == 0)) {
+				if ((col % 2 != 0 && row % 2 != 0) || (col % 2 == 0 && row % 2 == 0)) {
 					board[row][col].setBackground(Color.WHITE);
 				} else {
 					board[row][col].setBackground(Color.BLACK);
@@ -388,7 +397,7 @@ public class ChessActions extends JPanel {
 			for (int col = 0; col < 8; col++) {
 
 				// Adding colors for the design of the board
-				if ((col % 2 == 1 && row % 2 == 1) || (col % 2 == 0 && row % 2 == 0)) {
+				if ((col % 2 != 0 && row % 2 != 0) || (col % 2 == 0 && row % 2 == 0)) {
 					board[row][col].setBackground(Color.WHITE);
 				} else {
 					board[row][col].setBackground(Color.BLACK);
@@ -716,7 +725,7 @@ public class ChessActions extends JPanel {
 
 		public void actionPerformed(ActionEvent event) {
 			Move tempMove;
-			Piece movePiece;
+			//Piece movePiece;
 			// detect = false;
 
 			// If the user clicks on the quit button, quit the game

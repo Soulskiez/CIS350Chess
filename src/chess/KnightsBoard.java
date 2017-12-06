@@ -31,11 +31,6 @@ public class KnightsBoard implements ChessInterface {
 	/*Instantiates the board and all the different pieces*/
 	public KnightsBoard() {
 		
-		this.fromRow = fromRow;
-		this.toRow = toRow;
-		this.fromCol = fromCol;
-		this.toCol = toCol;
-		
 		board=new PieceInterface[8][8];
 		
 		board[rand7][rand3]=new Knight(Player.BLACK);
@@ -134,7 +129,7 @@ public class KnightsBoard implements ChessInterface {
 		for(int i=0;i<8;i++){
 			for(int j=0;j<8;j++)
 			{
-		if(board[i][j].player()==p && board[i][j].type().equals("Knight"))
+		if(board[i][j].player()== p && board[i][j].type().equals("Knight"))
 				{
 					//Once the positions are found, stores them inside 
 					//the two temporary variables!
