@@ -26,6 +26,7 @@ public abstract class Piece implements PieceInterface {
 	/**
 	 * Abstract method for returning the String of the pieces type.
 	 * 
+	 * @return type of piece
 	 */
 	public abstract String type();
 
@@ -75,7 +76,5 @@ public abstract class Piece implements PieceInterface {
 
 		}
 		throw new Exception("Invalid Piece Type");
-
 	}
-
 }

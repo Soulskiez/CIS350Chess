@@ -56,13 +56,13 @@ public class Queen extends Piece {
 			// Move up
 			if (move.fromRow > move.toRow) {
 				for (i = move.fromRow - 1; i >= move.toRow; i--) {
-					if (board[i][move.toColumn] == null)
+					if (board[i][move.toColumn] == null) {
 						valid = true;
-					else {
+					} else {
 						if (board[i][move.fromColumn].player() != board[move.fromRow][move.fromColumn].player()) {
-							if (i == move.toRow)
+							if (i == move.toRow) {
 								valid = true;
-							else {
+							} else {
 								valid = false;
 								break;
 							}
@@ -77,13 +77,13 @@ public class Queen extends Piece {
 			// Move down
 			if (move.fromRow < move.toRow) {
 				for (i = move.fromRow + 1; i <= move.toRow; i++) {
-					if (board[i][move.toColumn] == null)
+					if (board[i][move.toColumn] == null) {
 						valid = true;
-					else {
+					} else {
 						if (board[i][move.fromColumn].player() != board[move.fromRow][move.fromColumn].player()) {
-							if (i == move.toRow)
+							if (i == move.toRow) {
 								valid = true;
-							else {
+							} else {
 								valid = false;
 								break;
 							}
@@ -101,13 +101,13 @@ public class Queen extends Piece {
 			// Move left
 			if (move.fromColumn > move.toColumn) {
 				for (j = move.fromColumn - 1; j >= move.toColumn; j--) {
-					if (board[move.fromRow][j] == null)
+					if (board[move.fromRow][j] == null) {
 						valid = true;
-					else {
+					} else {
 						if (board[move.fromRow][j].player() != board[move.fromRow][move.fromColumn].player()) {
-							if (j == move.toColumn)
+							if (j == move.toColumn) {
 								valid = true;
-							else {
+							} else {
 								valid = false;
 								break;
 							}
@@ -118,18 +118,17 @@ public class Queen extends Piece {
 						}
 					}
 				}
-
 			} // end of move left
 			// Move right
 			if (move.fromColumn < move.toColumn) {
 				for (j = move.fromColumn + 1; j <= move.toColumn; j++) {
-					if (board[move.fromRow][j] == null)
+					if (board[move.fromRow][j] == null) {
 						valid = true;
-					else {
+					} else {
 						if (board[move.fromRow][j].player() != board[move.fromRow][move.fromColumn].player()) {
-							if (j == move.toColumn)
+							if (j == move.toColumn) {
 								valid = true;
-							else {
+							} else {
 								valid = false;
 								break;
 							}
@@ -146,10 +145,8 @@ public class Queen extends Piece {
 		else if (diffR == diffC) {
 			// Move left up
 			if (move.fromColumn > move.toColumn && move.fromRow > move.toRow) {
-
 				i = move.fromColumn - 1;
 				j = move.fromRow - 1;
-
 				while (i >= move.toColumn && j >= move.toRow) {
 					if (board[j][i] == null) {
 						valid = true;

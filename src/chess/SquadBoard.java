@@ -47,17 +47,19 @@ public class SquadBoard implements ChessInterface {
 
 		for (int i = 0; i < 8; i++) {
 			for (int j = 0; j < 8; j++) {
-				if (board[i][j].type() == "King" && inCheck(board[i][j].player()))
+				if (board[i][j].type() == "King" && inCheck(board[i][j].player())) {
 					complete = true;
+				}
 			}
 		}
 		return complete;
 	}
 
-	public boolean isValidMove(Move move) {
+	public boolean isValidMove(final Move move) {
 		boolean valid = false;
-		if (board[move.fromRow][move.fromColumn].isValidMove(move, board))
+		if (board[move.fromRow][move.fromColumn].isValidMove(move, board)) {
 			valid = true;
+		}
 
 		return valid;
 
@@ -147,8 +149,9 @@ public class SquadBoard implements ChessInterface {
 						&& board[r][c].player() != board[tempRow][tempRow].player()) {
 					// Called isValidMove for the piece and
 					// determines if it can have access to p
-					if (board[r][c].isValidMove(new Move(r, c, tempRow, tempCol), board))
+					if (board[r][c].isValidMove(new Move(r, c, tempRow, tempCol), board)) {
 						inCheck = true;
+					}
 				}
 			}
 		}
