@@ -13,7 +13,7 @@ import javax.swing.*;
 
 public class ChessActions extends JPanel {
 
-	//private ArrayList<JButton> button = new ArrayList<JButton>();
+	// private ArrayList<JButton> button = new ArrayList<JButton>();
 
 	private boolean detect = false;
 	public boolean newGameB = true;
@@ -25,8 +25,8 @@ public class ChessActions extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
-	/** The text representation for the pieces **/
-	/** For the black chess pieces **/
+	/** The text representation for the pieces. **/
+	/** For the black chess pieces. **/
 	String bBishop = "Bishop";
 	String bKing = "King";
 	String bKnight = "Knight";
@@ -35,7 +35,7 @@ public class ChessActions extends JPanel {
 	String bRook = "Rook";
 	ImageIcon BOARD = new ImageIcon("chessboard.jpg");
 
-	/** For the white chess Pieces **/
+	/** For the white chess Pieces. **/
 	String wBishop = "Bishop";
 	String wKing = "King";
 	String wKnight = "Knight";
@@ -60,7 +60,7 @@ public class ChessActions extends JPanel {
 	private JButton newGame;
 	private JButton squadGame;
 	private JButton KnightsGame;
-	//private JButton Undo;
+	// private JButton Undo;
 	private JPanel Center;
 	private JPanel Other;
 
@@ -131,7 +131,7 @@ public class ChessActions extends JPanel {
 	}
 
 	/*******************************************************************
-	 * This method updates the board
+	 * This method updates the board.
 	 ******************************************************************/
 	private void displayBoard() {
 
@@ -157,13 +157,15 @@ public class ChessActions extends JPanel {
 						board[r][c].setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 6));
 					}
 
-					if ((model.pieceAt(r, c).type().equals("King")) && (model.pieceAt(r, c).player() == (Player.BLACK))) {
+					if ((model.pieceAt(r, c).type().equals("King"))
+							&& (model.pieceAt(r, c).player() == (Player.BLACK))) {
 						board[r][c].setText(bKing);
 						board[r][c].setForeground(Color.DARK_GRAY);
 						board[r][c].setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 6));
 					}
 
-					if ((model.pieceAt(r, c).type().equals("King")) && (model.pieceAt(r, c).player() == (Player.WHITE))) {
+					if ((model.pieceAt(r, c).type().equals("King"))
+							&& (model.pieceAt(r, c).player() == (Player.WHITE))) {
 						board[r][c].setText(wKing);
 						board[r][c].setForeground(Color.LIGHT_GRAY);
 						board[r][c].setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 6));
@@ -183,12 +185,13 @@ public class ChessActions extends JPanel {
 						board[r][c].setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 6));
 					}
 
-					if ((model.pieceAt(r, c).type().equals("Pawn")) && (model.pieceAt(r, c).player() == (Player.BLACK))) {
+					if ((model.pieceAt(r, c).type().equals("Pawn"))
+							&& (model.pieceAt(r, c).player() == (Player.BLACK))) {
 						board[r][c].setText(bPawn);
 						board[r][c].setForeground(Color.DARK_GRAY);
 						board[r][c].setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 6));
 					}
-					
+
 					if ((model.pieceAt(r, c).type().equals("Pawn"))
 							&& (model.pieceAt(r, c).player() == (Player.WHITE))) {
 						board[r][c].setText(wPawn);
@@ -210,16 +213,18 @@ public class ChessActions extends JPanel {
 						board[r][c].setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 6));
 					}
 
-					if ((model.pieceAt(r, c).type().equals("Rook")) && (model.pieceAt(r, c).player() == (Player.BLACK))) {
+					if ((model.pieceAt(r, c).type().equals("Rook"))
+							&& (model.pieceAt(r, c).player() == (Player.BLACK))) {
 						board[r][c].setText(bRook);
 						board[r][c].setForeground(Color.DARK_GRAY);
 						board[r][c].setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 6));
 					}
 
-					if ((model.pieceAt(r, c).type().equals("Rook")) && (model.pieceAt(r, c).player() == (Player.WHITE))) {
+					if ((model.pieceAt(r, c).type().equals("Rook"))
+							&& (model.pieceAt(r, c).player() == (Player.WHITE))) {
 						board[r][c].setText(wRook);
-					board[r][c].setForeground(Color.LIGHT_GRAY);
-					board[r][c].setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 6));
+						board[r][c].setForeground(Color.LIGHT_GRAY);
+						board[r][c].setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 6));
 					}
 
 				} else {
@@ -234,7 +239,7 @@ public class ChessActions extends JPanel {
 		removeAll();
 		Center = new JPanel();
 		Other = new JPanel();
-		
+
 		newGameB = true;
 		newGameC = false;
 
@@ -428,32 +433,32 @@ public class ChessActions extends JPanel {
 		for (int r = 0; r < squadM.numRows(); r++) {
 			for (int c = 0; c < squadM.numColumns(); c++) {
 
-				// If the slot is not empty, there must be a piece there,
-				// if there is, search for the type and the color and
-				// set the appropriate icon.
+				// If the slot is not empty, there must be a
+				// piece there, if there is, search for the type
+				// and the color and set the appropriate icon.
 				if (squadM.pieceAt(r, c) != null) {
 
 					if ((squadM.pieceAt(r, c).type().equals("King"))
 							&& (squadM.pieceAt(r, c).player() == (Player.BLACK))) {
 						board[r][c].setText(bKing);
-					board[r][c].setForeground(Color.DARK_GRAY);
-					board[r][c].setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 6));
+						board[r][c].setForeground(Color.DARK_GRAY);
+						board[r][c].setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 6));
 					}
 
 					if ((squadM.pieceAt(r, c).type().equals("King"))
 							&& (squadM.pieceAt(r, c).player() == (Player.WHITE))) {
 						board[r][c].setText(wKing);
-					board[r][c].setForeground(Color.LIGHT_GRAY);
-					board[r][c].setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 6));
+						board[r][c].setForeground(Color.LIGHT_GRAY);
+						board[r][c].setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 6));
 					}
 
 					if ((squadM.pieceAt(r, c).type().equals("Pawn"))
 							&& (squadM.pieceAt(r, c).player() == (Player.BLACK))) {
 						board[r][c].setText(bPawn);
-					board[r][c].setForeground(Color.DARK_GRAY);
-					board[r][c].setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 6));
+						board[r][c].setForeground(Color.DARK_GRAY);
+						board[r][c].setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 6));
 					}
-					
+
 					if ((squadM.pieceAt(r, c).type().equals("Pawn"))
 							&& (squadM.pieceAt(r, c).player() == (Player.WHITE))) {
 						board[r][c].setText(wPawn);
@@ -464,29 +469,29 @@ public class ChessActions extends JPanel {
 					if ((squadM.pieceAt(r, c).type().equals("Knight"))
 							&& (squadM.pieceAt(r, c).player() == (Player.BLACK))) {
 						board[r][c].setText(bKnight);
-					board[r][c].setForeground(Color.DARK_GRAY);
-					board[r][c].setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 6));
+						board[r][c].setForeground(Color.DARK_GRAY);
+						board[r][c].setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 6));
 					}
 
 					if ((squadM.pieceAt(r, c).type().equals("Knight"))
 							&& (squadM.pieceAt(r, c).player() == (Player.WHITE))) {
 						board[r][c].setText(wKnight);
-					board[r][c].setForeground(Color.LIGHT_GRAY);
-					board[r][c].setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 6));
+						board[r][c].setForeground(Color.LIGHT_GRAY);
+						board[r][c].setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 6));
 					}
 
 					if ((squadM.pieceAt(r, c).type().equals("Rook"))
 							&& (squadM.pieceAt(r, c).player() == (Player.BLACK))) {
 						board[r][c].setText(bRook);
-					board[r][c].setForeground(Color.DARK_GRAY);
-					board[r][c].setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 6));
+						board[r][c].setForeground(Color.DARK_GRAY);
+						board[r][c].setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 6));
 					}
 
 					if ((squadM.pieceAt(r, c).type().equals("Rook"))
 							&& (squadM.pieceAt(r, c).player() == (Player.WHITE))) {
 						board[r][c].setText(wRook);
-					board[r][c].setForeground(Color.LIGHT_GRAY);
-					board[r][c].setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 6));
+						board[r][c].setForeground(Color.LIGHT_GRAY);
+						board[r][c].setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 6));
 					}
 
 				} else {
@@ -502,7 +507,7 @@ public class ChessActions extends JPanel {
 		removeAll();
 		Center = new JPanel();
 		Other = new JPanel();
-		
+
 		newGameB = false;
 		newGameC = true;
 
@@ -563,7 +568,7 @@ public class ChessActions extends JPanel {
 			for (int col = 0; col < 8; col++) {
 
 				// Adding colors for the design of the board
-				if ((col % 2 == 1 && row % 2 == 1) || (col % 2 == 0 && row % 2 == 0)) {
+				if ((col % 2 != 0 && row % 2 != 0) || (col % 2 == 0 && row % 2 == 0)) {
 					board[row][col].setBackground(Color.WHITE);
 				} else {
 					board[row][col].setBackground(Color.BLACK);
@@ -594,22 +599,25 @@ public class ChessActions extends JPanel {
 		for (int r = 0; r < KnightsM.numRows(); r++) {
 			for (int c = 0; c < KnightsM.numColumns(); c++) {
 
-				// If the slot is not empty, there must be a piece there,
-				// if there is, search for the type and the color and
-				// set the appropriate icon.
+				// If the slot is not empty, there must be a piece
+				// there, if there is, search for the type and the
+				// color and set the appropriate icon.
 				if (KnightsM.pieceAt(r, c) != null) {
 
 					if ((KnightsM.pieceAt(r, c).type().equals("King"))
-							&& (KnightsM.pieceAt(r, c).player() == (Player.BLACK)))
+							&& (KnightsM.pieceAt(r, c).player() == (Player.BLACK))) {
 						board[r][c].setText(bKing);
+					}
 
 					if ((KnightsM.pieceAt(r, c).type().equals("King"))
-							&& (KnightsM.pieceAt(r, c).player() == (Player.WHITE)))
+							&& (KnightsM.pieceAt(r, c).player() == (Player.WHITE))) {
 						board[r][c].setText(wKing);
+					}
 
 					if ((KnightsM.pieceAt(r, c).type().equals("Pawn"))
-							&& (KnightsM.pieceAt(r, c).player() == (Player.BLACK)))
+							&& (KnightsM.pieceAt(r, c).player() == (Player.BLACK))) {
 						board[r][c].setText(bPawn);
+					}
 					if (r == 5 && c == 5) {
 						// System.out.println(model.pieceAt(r, c).type());
 						// System.out.println(model.pieceAt(r, c).player());
@@ -622,25 +630,26 @@ public class ChessActions extends JPanel {
 					if ((KnightsM.pieceAt(r, c).type().equals("Knight"))
 							&& (KnightsM.pieceAt(r, c).player() == (Player.BLACK))) {
 						board[r][c].setText(bKnight);
-					board[r][c].setForeground(Color.DARK_GRAY);
-					board[r][c].setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 6));
+						board[r][c].setForeground(Color.DARK_GRAY);
+						board[r][c].setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 6));
 					}
-					
 
 					if ((KnightsM.pieceAt(r, c).type().equals("Knight"))
 							&& (KnightsM.pieceAt(r, c).player() == (Player.WHITE))) {
 						board[r][c].setText(wKnight);
-					board[r][c].setForeground(Color.LIGHT_GRAY);
-					board[r][c].setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 6));
+						board[r][c].setForeground(Color.LIGHT_GRAY);
+						board[r][c].setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 6));
 					}
 
 					if ((KnightsM.pieceAt(r, c).type().equals("Rook"))
-							&& (KnightsM.pieceAt(r, c).player() == (Player.BLACK)))
+							&& (KnightsM.pieceAt(r, c).player() == (Player.BLACK))) {
 						board[r][c].setText(bRook);
+					}
 
 					if ((KnightsM.pieceAt(r, c).type().equals("Rook"))
-							&& (KnightsM.pieceAt(r, c).player() == (Player.WHITE)))
+							&& (KnightsM.pieceAt(r, c).player() == (Player.WHITE))) {
 						board[r][c].setText(wRook);
+					}
 
 				} else {
 					board[r][c].setText(blank);
@@ -665,13 +674,9 @@ public class ChessActions extends JPanel {
 				}
 			}
 		}
-		if (blackKing == whiteKing) {
-			return true;
-		} else {
-			return false;
-		}
+		return blackKing == whiteKing;
 	}
-	
+
 	public boolean gameOverS() {
 		boolean whiteKing = false;
 		boolean blackKing = false;
@@ -686,13 +691,9 @@ public class ChessActions extends JPanel {
 				}
 			}
 		}
-		if (blackKing == whiteKing) {
-			return true;
-		} else {
-			return false;
-		}
+		return blackKing == whiteKing;
 	}
-	
+
 	public boolean gameOverK() {
 		boolean whiteKing = false;
 		boolean blackKing = false;
@@ -701,31 +702,25 @@ public class ChessActions extends JPanel {
 				if (KnightsM.pieceAt(i, j) != null) {
 					if (KnightsM.pieceAt(i, j).type() == "Knight" && KnightsM.pieceAt(i, j).player() == Player.WHITE) {
 						whiteKing = true;
-					} else if (KnightsM.pieceAt(i, j).type() == "Knight" && KnightsM.pieceAt(i, j).player() == Player.BLACK) {
+					} else if (KnightsM.pieceAt(i, j).type() == "Knight"
+							&& KnightsM.pieceAt(i, j).player() == Player.BLACK) {
 						blackKing = true;
 					}
 				}
 			}
 		}
-		if (blackKing == whiteKing) {
-			return true;
-		} else {
-			return false;
-		}
+		return blackKing == whiteKing;
 	}
-	
-	
-		
 
-	/***********************************************************************
+	/**********************************************************************
 	 * The button listener makes sure that when a button is clicked, the appropriate
 	 * methods are called.
-	 **********************************************************************/
+	 *********************************************************************/
 	private class ButtonListener implements ActionListener {
 
-		public void actionPerformed(ActionEvent event) {
+		public void actionPerformed(final ActionEvent event) {
 			Move tempMove;
-			//Piece movePiece;
+			// Piece movePiece;
 			// detect = false;
 
 			// If the user clicks on the quit button, quit the game
@@ -739,16 +734,12 @@ public class ChessActions extends JPanel {
 			}
 
 			if (event.getSource() == newGame) {
-				// JOptionPane.showMessageDialog(null, "Welcome to the Game" + " of Chess",
-				// "Chess",
-				// JOptionPane.INFORMATION_MESSAGE, BOARD);
-
 				NewGame();
 			}
 			if (event.getSource() == squadGame) {
 				squadGame();
 			}
-			
+
 			if (event.getSource() == KnightsGame) {
 				KnightsGame();
 			}
@@ -889,12 +880,10 @@ public class ChessActions extends JPanel {
 									detect = false;
 								}
 							}
-
 						}
 					}
 				}
 			}
-
 		}
 	}
 }

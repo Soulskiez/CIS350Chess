@@ -1,13 +1,11 @@
 package chess;
 
-
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 
 /***********************************************************************
- * Constructor of the ChessGui class.
- * Instantiates the frame and the panel.
+ * Constructor of the ChessGui class. Instantiates the frame and the panel.
  **********************************************************************/
 
 public class ChessGUI {
@@ -21,6 +19,6 @@ public class ChessGUI {
 		frame.getContentPane().add(panel);
 		frame.pack();
 		frame.setVisible(true);
-		frame.setSize(1280,720); 
+		frame.setSize(1280, 720);
 	}
 }

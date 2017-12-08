@@ -6,91 +6,89 @@ import org.junit.Test;
 
 public class ChessTest {
 
-	@Test 
-	public void Rooktest(){
-		boolean valid = false;
-		Move move = new Move(7, 6, 7, 7);
-		int board[][] = new int[8][8];
-		
-	}
-	
 	@Test
-	public void KnightTest2Up1RightCapture() {
+	public void knightTest2Up1RightCapture() {
 		boolean valid = false;
 		Move move = new Move(3, 1, 3, 4);
-		int board[][] = new int[8][8];
-		board[3][3] = 1;// player 1
-		board[1][4] = 2;// player 2
+		int[][] board = new int[8][8];
+		board[3][3] = 1; // player 1
+		board[1][4] = 2; // player 2
 
-		if (move.toColumn == move.fromColumn + 1 && move.toRow == move.fromRow - 2)
-			if (board[move.toRow][move.toColumn] == 0)
+		if (move.toColumn == move.fromColumn + 1 && move.toRow == move.fromRow - 2) {
+			if (board[move.toRow][move.toColumn] == 0) {
 				valid = true;
-			else {
-				if (board[move.toRow][move.toColumn] != board[move.fromRow][move.fromColumn])
+			} else {
+				if (board[move.toRow][move.toColumn] != board[move.fromRow][move.fromColumn]) {
 					valid = true;
-				else
+				} else {
 					valid = false;
+				}
 			}
+		}
 		assertTrue(valid);
 	}
 
 	@Test
-	public void KnightTest2Down1LeftEmpty() {
+	public void knightTest2Down1LeftEmpty() {
 		boolean valid = false;
 		Move move = new Move(2, 4, 2, 1);
-		int board[][] = new int[8][8];
-		board[2][2] = 1;// player 1
-		board[4][1] = 2;// player 2
+		int[][] board = new int[8][8];
+		board[2][2] = 1; // player 1
+		board[4][1] = 2; // player 2
 
-		if (move.toColumn == move.fromColumn - 1 && move.toRow == move.fromRow + 2)
-			if (board[move.toRow][move.toColumn] == 0)
+		if (move.toColumn == move.fromColumn - 1 && move.toRow == move.fromRow + 2) {
+			if (board[move.toRow][move.toColumn] == 0) {
 				valid = true;
-			else {
-				if (board[move.toRow][move.toColumn] != board[move.fromRow][move.fromColumn])
+			} else {
+				if (board[move.toRow][move.toColumn] != board[move.fromRow][move.fromColumn]) {
 					valid = true;
-				else
+				} else {
 					valid = false;
+				}
 			}
+		}
 		assertTrue(valid);
 	}
-	
+
 	@Test
-	public void Knight2Left1UpSamePlayer() {
+	public void knight2Left1UpSamePlayer() {
 		boolean valid = false;
 		Move move = new Move(3, 2, 3, 1);
-		int board[][] = new int[8][8];
-		board[3][3] = 1;// player 1
-		board[2][1] = 1;// player 1
-		
-		if (move.toColumn == move.fromColumn - 2 && move.toRow == move.fromRow - 1)
-			if (board[move.toRow][move.toColumn] == 0)
+		int[][] board = new int[8][8];
+		board[3][3] = 1; // player 1
+		board[2][1] = 1; // player 1
+
+		if (move.toColumn == move.fromColumn - 2 && move.toRow == move.fromRow - 1) {
+			if (board[move.toRow][move.toColumn] == 0) {
 				valid = true;
-			else {
-				if (board[move.toRow][move.toColumn] != board[move.fromRow][move.fromColumn])
+			} else {
+				if (board[move.toRow][move.toColumn] != board[move.fromRow][move.fromColumn]) {
 					valid = true;
-				else
+				} else {
 					valid = false;
+				}
 			}
+		}
 		assertFalse(valid);
 	}
 
 	@Test
-	public void RookTestShouldNotHopOverPieces() {
+	public void rookTestShouldNotHopOverPieces() {
 		boolean valid = false;
-		Move move = new Move(2, 6, 2, 2);// Down 4
-		int board[][] = new int[8][8];
-		board[2][2] = 1;// player 1
-		board[4][2] = 1;// player 1 in the way
+		Move move = new Move(2, 6, 2, 2); // Down 4
+		int[][] board = new int[8][8];
+		board[2][2] = 1; // player 1
+		board[4][2] = 1; // player 1 in the way
 
 		if (move.fromRow < move.toRow) {
 			for (int i = move.fromRow + 1; i <= move.toRow; i++) {
-				if (board[i][move.toColumn] == 0)
+				if (board[i][move.toColumn] == 0) {
 					valid = true;
-				else {
+				} else {
 					if (board[i][move.fromColumn] != board[move.fromRow][move.fromColumn]) {
-						if (i == move.toRow)
+						if (i == move.toRow) {
 							valid = true;
-						else {
+						} else {
 							valid = false;
 							break;
 						}
@@ -106,22 +104,22 @@ public class ChessTest {
 	}
 
 	@Test
-	public void RookTestMove4LeftCapture() {
+	public void rookTestMove4LeftCapture() {
 		boolean valid = false;
 		Move move = new Move(6, 6, 6, 2);
-		int board[][] = new int[8][8];
-		board[6][6] = 1;// player 1
-		board[6][2] = 2;// player 2
+		int[][] board = new int[8][8];
+		board[6][6] = 1; // player 1
+		board[6][2] = 2; // player 2
 
 		if (move.fromColumn > move.toColumn) {
 			for (int j = move.fromColumn - 1; j >= move.toColumn; j--) {
-				if (board[move.fromRow][j] == 0)
+				if (board[move.fromRow][j] == 0) {
 					valid = true;
-				else {
+				} else {
 					if (board[move.fromRow][j] != board[move.fromRow][move.fromColumn]) {
-						if (j == move.toColumn)
+						if (j == move.toColumn) {
 							valid = true;
-						else {
+						} else {
 							valid = false;
 							break;
 						}
@@ -135,24 +133,24 @@ public class ChessTest {
 		}
 		assertTrue(valid);
 	}
-	
+
 	@Test
-	public void RookTestMove4RightSamePlayer() {
+	public void rookTestMove4RightSamePlayer() {
 		boolean valid = false;
 		Move move = new Move(6, 2, 6, 6);
-		int board[][] = new int[8][8];
-		board[6][6] = 1;// player 1
-		board[2][6] = 1;// player 1
-		
+		int[][] board = new int[8][8];
+		board[6][6] = 1; // player 1
+		board[2][6] = 1; // player 1
+
 		if (move.fromColumn < move.toColumn) {
 			for (int j = move.fromColumn + 1; j <= move.toColumn; j++) {
-				if (board[move.fromRow][j] == 0)
+				if (board[move.fromRow][j] == 0) {
 					valid = true;
-				else {
+				} else {
 					if (board[move.fromRow][j] != board[move.fromRow][move.fromColumn]) {
-						if (j == move.toColumn)
+						if (j == move.toColumn) {
 							valid = true;
-						else {
+						} else {
 							valid = false;
 							break;
 						}
@@ -166,24 +164,24 @@ public class ChessTest {
 		}
 		assertFalse(valid);
 	}
-	
+
 	@Test
-	public void RookTestUp1() {
+	public void rookTestUp1() {
 		boolean valid = false;
 		Move move = new Move(7, 6, 7, 7);
-		int board[][] = new int[8][8];
-		board[7][7] = 1;// player 1
-		board[7][6] = 1;// player 1 in the way
+		int[][] board = new int[8][8];
+		board[7][7] = 1; // player 1
+		board[7][6] = 1; // player 1 in the way
 
 		if (move.fromRow > move.toRow) {
 			for (int i = move.fromRow - 1; i >= move.toRow; i--) {
-				if (board[i][move.toColumn] == 0)
+				if (board[i][move.toColumn] == 0) {
 					valid = true;
-				else {
+				} else {
 					if (board[i][move.fromColumn] != board[move.fromRow][move.fromColumn]) {
-						if (i == move.toRow)
+						if (i == move.toRow) {
 							valid = true;
-						else {
+						} else {
 							valid = false;
 							break;
 						}
@@ -197,7 +195,5 @@ public class ChessTest {
 		}
 		assertTrue(valid);
 	}
-	
-
 
 }

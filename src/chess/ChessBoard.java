@@ -50,8 +50,8 @@ public class ChessBoard implements ChessInterface {
 	}
 
 	/*******************************************************************
-	 * This method determines if the game is over by checking if the King is in
-	 * check on every side.
+	 * This method determines if the game is over by checking if the
+	 * King is in check on every side.
 	 * 
 	 * @return true if the game is complete and false otherwise
 	 ******************************************************************/
@@ -60,17 +60,19 @@ public class ChessBoard implements ChessInterface {
 
 		for (int i = 0; i < 8; i++) {
 			for (int j = 0; j < 8; j++) {
-				if (board[i][j].type() == "King" && inCheck(board[i][j].player()))
+				if (board[i][j].type() == "King" && inCheck(board[i][j].player())) {
 					complete = true;
+				}
 			}
 		}
 		return complete;
 	}
 
-	public boolean isValidMove(Move move) {
+	public boolean isValidMove(final Move move) {
 		boolean valid = false;
-		if (board[move.fromRow][move.fromColumn].isValidMove(move, board))
+		if (board[move.fromRow][move.fromColumn].isValidMove(move, board)) {
 			valid = true;
+		}
 
 		return valid;
 
@@ -94,32 +96,12 @@ public class ChessBoard implements ChessInterface {
 			}
 		}
 	}
-	
-//	public PieceInterface[][] undoMove(){
-//		int counter = 0;
-//		board2 = new PieceInterface[8][8];
-//		for(int i = 0; i < 7; i++) {
-//			for(int j = 0; j < 7; j++) {
-//				board2[i][j] = board[i][j];
-//			}
-//		}
-//		for(int i = 0; i < 7; i++) {
-//			for(int j = 0; j < 7; j++) {
-//				if(board2[i][j] != board[i][j]) {
-//					counter++;
-//				}
-//			}
-//		}
-//		if(counter >= 2) {
-//			
-//		}
-//	}
 
 	/*******************************************************************
-	 * This method moves the piece and updates it. @param move which holds the
-	 * position values for each button @throws
+	 * This method moves the piece and updates it. @param move which
+	 * holds the position values for each button @throws
 	 ******************************************************************/
-	public void move(Move move) {
+	public void move(final Move move) {
 		PieceInterface currentPiece = this.pieceAt(move.fromRow, move.fromColumn);
 		try {
 			PieceInterface newPiece = Piece.createPieceByType(currentPiece.type(), currentPiece.player());
@@ -144,18 +126,16 @@ public class ChessBoard implements ChessInterface {
 	}
 
 	/*******************************************************************
-	 * This method determines whether or not the King piece is in check by checking
-	 * if the other pieces can capture it.
+	 * This method determines whether or not the King piece is in 
+	 * check by checking if the other pieces can capture it.
 	 * 
-	 * @param p,
-	 *            the player which needs to verifies if it's in check
+	 * @param p the player which needs to verifies if it's in check
 	 * @return if the player is in check
 	 ******************************************************************/
-	public boolean inCheck(Player p) {
+	public boolean inCheck(final Player p) {
 
 		// Important variables
 
-		Move Temp;
 		int tempRow = 0;
 		int tempCol = 0;
 		boolean inCheck = false;
@@ -165,8 +145,8 @@ public class ChessBoard implements ChessInterface {
 		for (int i = 0; i < 8; i++) {
 			for (int j = 0; j < 8; j++) {
 				if (board[i][j].player() == p && board[i][j].type().equals("King")) {
-					// Once the positions are found, stores them inside
-					// the two temporary variables!
+					// Once the positions are found, stores
+					// them in the two temporary variables!
 
 					tempRow = i;
 					tempCol = j;
@@ -179,19 +159,19 @@ public class ChessBoard implements ChessInterface {
 			for (int c = 0; c < 8; c++) {
 				if (board[r][c].type() != null && r != tempRow && c != tempCol
 						&& board[r][c].player() != board[tempRow][tempRow].player()) {
-					// Called isValidMove for the piece and determines if
-					// it can have access to p.
-					if (board[r][c].isValidMove(Temp = new Move(r, c, tempRow, tempCol), board))
+					// Called isValidMove for the piece and
+					// determines if it can have access to p
+					if (board[r][c].isValidMove(new Move(r, c, tempRow, tempCol), board)) {
 						inCheck = true;
+					}
 				}
 			}
 		}
-
 		return inCheck;
 	}
 
 	/*******************************************************************
-	 * returns the current player
+	 * returns the current player.
 	 * 
 	 * @return the player which holds the piece
 	 ******************************************************************/
@@ -200,7 +180,7 @@ public class ChessBoard implements ChessInterface {
 	}
 
 	/*******************************************************************
-	 * returns the number of rows
+	 * returns the number of rows.
 	 * 
 	 * @return the number of rows
 	 ******************************************************************/
@@ -209,7 +189,7 @@ public class ChessBoard implements ChessInterface {
 	}
 
 	/*******************************************************************
-	 * returns the number of columns
+	 * returns the number of columns.
 	 * 
 	 * @return the number of columns
 	 ******************************************************************/
@@ -217,7 +197,7 @@ public class ChessBoard implements ChessInterface {
 		return 8;
 	}
 
-	public PieceInterface pieceAt(int row, int column) {
+	public PieceInterface pieceAt(final int row, final int column) {
 		return board[row][column];
 	}
 

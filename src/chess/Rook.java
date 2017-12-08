@@ -2,26 +2,23 @@ package chess;
 
 public class Rook extends Piece {
 	// A variable to determine which side a given piece is.
-//	private Player player;
+	// private Player player;
 
 	/**
 	 * A method that sets the player to the correct player.
 	 * 
-	 * @param player Variable to determine which side the piece belongs to.
+	 * @param player
+	 *            Variable to determine which side the piece belongs to.
 	 */
-	protected Rook(Player player) {
+	protected Rook(final Player player) {
 		super(player);
 	}
 
 	/**
-	 * Method to return the player
+	 * Method to return the player.
 	 * 
 	 * @return player Variable to determine which side the piece belongs to.
 	 */
-//	@Override
-//	public Player player() {
-//		return player;
-//	}
 
 	/**
 	 * Method that returns the type of the piece as a string.
@@ -34,8 +31,8 @@ public class Rook extends Piece {
 	}
 
 	/**
-	 * Method that will return whether the movement of a given piece is allowed
-	 * for that piece.
+	 * Method that will return whether the movement of a given piece is
+	 * allowed for that piece.
 	 * 
 	 * @param move
 	 *            A specific move entered by the user.
@@ -43,9 +40,9 @@ public class Rook extends Piece {
 	 *            A 2D array of pieces.
 	 * @return If the given move was a valid move.
 	 */
-	public boolean isValidMove(Move move, PieceInterface[][] board) {
+	
+	public boolean isValidMove(final Move move, final PieceInterface[][] board) {
 		boolean valid = false;
-
 		// Move up or down
 		if (move.fromColumn == move.toColumn) {
 			// Move up
@@ -69,8 +66,7 @@ public class Rook extends Piece {
 					}
 				}
 			} // end of move up
-
-			// Move down
+				// Move down
 			if (move.fromRow < move.toRow) {
 				for (int i = move.fromRow + 1; i <= move.toRow; i++) {
 					if (board[i][move.toColumn] == null)
@@ -114,10 +110,8 @@ public class Rook extends Piece {
 						}
 					}
 				}
-
 			} // end of move left
-
-			// Move right
+				// Move right
 			if (move.fromColumn < move.toColumn) {
 				for (int j = move.fromColumn + 1; j <= move.toColumn; j++) {
 					if (board[move.fromRow][j] == null)

@@ -7,14 +7,15 @@ public abstract class Piece implements PieceInterface {
 	/**
 	 * A method that sets the player to the correct player.
 	 * 
-	 * @param player Variable to determine which side the piece belongs to.
+	 * @param player
+	 *            Variable to determine which side the piece belongs to.
 	 */
-	protected Piece(Player player) {
+	protected Piece(final Player player) {
 		this.player = player;
 	}
 
 	/**
-	 * Method to return the player
+	 * Method to return the player.
 	 * 
 	 * @return player Variable to determine which side the piece belongs to.
 	 */
@@ -24,11 +25,12 @@ public abstract class Piece implements PieceInterface {
 
 	/**
 	 * Abstract method for returning the String of the pieces type.
+	 * 
 	 */
 	public abstract String type();
 
 	/**
-	 * Method that will return whether the movement of a given piece is allowed
+	 * Method that returns whether the movement of a given piece is allowed
 	 * for that piece.
 	 * 
 	 * @param move
@@ -37,7 +39,7 @@ public abstract class Piece implements PieceInterface {
 	 *            A 2D array of pieces.
 	 * @return If the given move was a valid move.
 	 */
-	public boolean isValidMove(Move move, Piece[][] board) {
+	public boolean isValidMove(final Move move, final Piece[][] board) {
 		boolean valid = false;
 
 		if ((move.toRow != move.fromRow) || (move.fromColumn != move.toColumn)) {
@@ -53,9 +55,9 @@ public abstract class Piece implements PieceInterface {
 		}
 		return valid;
 	}
-	
-	public static PieceInterface createPieceByType(String type, Player player) throws Exception {
-		switch(type) {
+
+	public static PieceInterface createPieceByType(final String type, final Player player) throws Exception {
+		switch (type) {
 		case "Pawn":
 			return new Pawn(player);
 		case "Rook":
@@ -68,11 +70,12 @@ public abstract class Piece implements PieceInterface {
 			return new King(player);
 		case "Bishop":
 			return new Bishop(player);
-			
+		default:
+			break;
+
 		}
 		throw new Exception("Invalid Piece Type");
-			
-		
+
 	}
 
 }

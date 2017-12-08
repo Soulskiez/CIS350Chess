@@ -10,12 +10,12 @@ public class Pawn extends Piece {
 	 * @param player
 	 *            Variable to determine which side the piece belongs to.
 	 */
-	protected Pawn(Player player) {
+	protected Pawn(final Player player) {
 		super(player);
 	}
 
 	/**
-	 * Method to return the player
+	 * Method to return the player.
 	 * 
 	 * @return player Variable to determine which side the piece belongs to.
 	 */
@@ -34,8 +34,8 @@ public class Pawn extends Piece {
 	}
 
 	/**
-	 * Method that will return whether the movement of a given piece is allowed for
-	 * that piece.
+	 * Method that will return whether the movement of a given piece
+	 * is allowed for that piece.
 	 * 
 	 * @param move
 	 *            A specific move entered by the user.
@@ -44,12 +44,11 @@ public class Pawn extends Piece {
 	 * @return If the given move was a valid move.
 	 */
 	@Override
-	public boolean isValidMove(Move move, PieceInterface[][] board) {
+	public boolean isValidMove(final Move move, final PieceInterface[][] board) {
 		boolean valid = false;
 		// Check if player is WHITE
 		if (board[move.fromRow][move.fromColumn].player() == Player.WHITE) {
 			int i = 0;
-			int j = 0;
 			// Check if you moved to the same spot
 			if (board[move.fromRow][move.fromColumn] == board[move.toRow][move.toColumn]) {
 				valid = false;
@@ -62,13 +61,13 @@ public class Pawn extends Piece {
 			}
 			// Check if you are in the WHITE Pawn starting row (6)
 			if (board[move.fromRow][move.fromColumn] == board[6][move.fromColumn]) {
-				
+
 				// Check if you moved up 2 spaces
 				if (board[move.fromRow][move.fromColumn] == board[move.toRow + 2][move.toColumn]) {
 					for (i = move.fromRow - 1; i >= move.toRow; i--) {
-						if (board[i][move.toColumn] == null)
+						if (board[i][move.toColumn] == null) {
 							valid = true;
-						else {
+						} else {
 							valid = false;
 							break;
 						}
@@ -105,12 +104,11 @@ public class Pawn extends Piece {
 				}
 			}
 		}
-		
+
 		// Check if player is BLACK
 		else if (board[move.fromRow][move.fromColumn].player() == Player.BLACK) {
 
 			int i = 0;
-			int j = 0;
 			// Check if you moved to the same spot
 			if (board[move.fromRow][move.fromColumn] == board[move.toRow][move.toColumn]) {
 				valid = false;
@@ -120,27 +118,18 @@ public class Pawn extends Piece {
 
 				if (board[move.toRow][move.toColumn] == null) {
 					valid = true;
+				} else {
+					valid = false;
 				}
-				else {
-					 valid = false;
-				}
-				// else if (board[j][i].player() !=
-				// board[move.fromRow][move.fromColumn].player()) {
-				// valid = false;
-				//
-				// } else if (board[j][i].player() ==
-				// board[move.fromRow][move.fromColumn].player()) {
-				// valid = false;
-				// }
 			}
 			// Check if you are in the BLACK Pawn starting row (1)
 			if (move.fromRow == 1) {
 				// Check if you moved down 2 spaces
 				if (board[move.fromRow][move.fromColumn] == board[move.toRow - 2][move.toColumn]) {
 					for (i = move.fromRow + 1; i <= move.toRow; i++) {
-						if (board[i][move.toColumn] == null)
+						if (board[i][move.toColumn] == null) {
 							valid = true;
-						else {
+						} else {
 							valid = false;
 							break;
 						}
